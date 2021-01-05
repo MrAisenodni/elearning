@@ -11,10 +11,10 @@
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Virtual Class</title>
+    <title>SMAN 1 Megamendung</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../asset/admin/plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../asset/logo.png">
     <!-- Custom CSS -->
     <link href="../asset/admin/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../asset/admin/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
@@ -50,13 +50,14 @@
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="../asset/admin/plugins/images/logo-icon.png" alt="homepage" />
+                            <img src="../asset/logo.png" alt="homepage" width="35px" height="35px" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../asset/admin/plugins/images/logo-text.png" alt="homepage" />
+                            <!-- <img src="../asset/admin/plugins/images/logo-text.png" alt="homepage" /> -->
+                            <h1>SMANIM</h1>
                         </span>
                     </a>
                     <!-- ============================================================== -->
