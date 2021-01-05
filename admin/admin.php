@@ -42,8 +42,19 @@
                                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Jenis Kelamin</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <label for="exampleInputPassword1">Jenis Kelamin</label>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                      <label class="form-check-label" for="exampleRadios1">
+                                        Laki - Laki
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                      <label class="form-check-label" for="exampleRadios2">
+                                        Perempuan
+                                      </label>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tgl Lahir</label>
@@ -56,6 +67,27 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Username</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Tipe User</label>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                      <label class="form-check-label" for="exampleRadios1">
+                                        Admin
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                      <label class="form-check-label" for="exampleRadios2">
+                                        Guru
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                      <label class="form-check-label" for="exampleRadios2">
+                                        Peserta Didik
+                                      </label>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
