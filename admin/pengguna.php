@@ -6,13 +6,13 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
-                <h3 class="box-title">Tabel Admin</h3>
+                <h3 class="box-title">Tabel Pengguna</h3>
                 <!-- Button trigger modal -->
                 <div class="row">
                     <div class="col-lg-9">
                         <button type="button" class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus-square"></i>
-                                Tambah Admin
+                                Tambah Pengguna
                         </button>
                         <br><br>
                     </div>
@@ -30,7 +30,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah Mapel</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah Pengguna</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -108,9 +108,8 @@
                             <tr>
                                 <th class="border-top-0">No</th>
                                 <th class="border-top-0">Nama</th>
-                                <th class="border-top-0">Jenis Kelamin</th>
-                                <th class="border-top-0">Tgl Lahir</th>
-                                <th class="border-top-0">Telp</th>
+                                <th class="border-top-0">No HP</th>
+                                <th class="border-top-0">Tipe Pengguna</th>
                                 <th class="border-top-0">Username</th>
                                 <th class="border-top-0">Aksi</th>
                             </tr>
@@ -118,12 +117,14 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Mia</td>
-                                <td>Perempuan</td>
-                                <td>12 Januari</td>
-                                <td>1121145</td>
-                                <td>mia@smk1.jasda</td>
+                                <td>Dr. Sucipto Mangunjaya, S.Pd.</td>
+                                <td>085718093600</td>
+                                <td>Guru</td>
+                                <td>ciptokunjaya@smanim.com</td>
                                 <td>
+                                    <a href="edit-mapel.php" class="btn btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                     <a href="" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
@@ -133,13 +134,15 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>Mia</td>
-                                <td>Perempuan</td>
-                                <td>12 Januari</td>
-                                <td>1121145</td>
-                                <td>mia@smk1.jasda</td>
+                                <td>2</td>
+                                <td>Siti Fatimah</td>
+                                <td>089312454461</td>
+                                <td>Siswa</td>
+                                <td>sivasiva@gmail.com</td>
                                 <td>
+                                    <a href="edit-mapel.php" class="btn btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                     <a href="" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
