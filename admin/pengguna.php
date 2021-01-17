@@ -128,7 +128,7 @@
                                     <a href="" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-admin.php" class="btn btn-info">
+                                    <a href="detail-pengguna.php" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>
@@ -146,7 +146,7 @@
                                     <a href="" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-admin.php" class="btn btn-info">
+                                    <a href="detail-pengguna.php" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>
