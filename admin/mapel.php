@@ -30,7 +30,7 @@
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Mapel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Mata Pelajaran</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -38,12 +38,20 @@
                         <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nama Mapel</label>
+                                <label for="exampleInputEmail1">Mata Pelajaran</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">File</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <label for="exampleInputEmail1">Kelas</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Guru</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Siswa</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -63,8 +71,10 @@
                         <thead>
                             <tr>
                                 <th class="border-top-0">No</th>
-                                <th class="border-top-0">Nama Mapel</th>
-                                <th class="border-top-0">File</th>
+                                <th class="border-top-0">Mata Pelajaran</th>
+                                <th class="border-top-0">Kelas</th>
+                                <th class="border-top-0">Guru</th>
+                                <th class="border-top-0">Siswa</th>
                                 <th class="border-top-0">Aksi</th>
                             </tr>
                         </thead>
@@ -72,7 +82,9 @@
                             <tr>
                                 <td>1</td>
                                 <td>B Indonesia</td>
-                                <td>Rp</td>
+                                <td>A</td>
+                                <td>Dr. Sucipto Mangunjaya, S.Pd.</td>
+                                <td>Siti Fatimah</td>
                                 <td>
                                     <a href="edit-mapel.php" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
@@ -86,9 +98,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>B Indonesia</td>
-                                <td>Rp</td>
+                                <td>2</td>
+                                <td>Matematika</td>
+                                <td>A</td>
+                                <td>Angga Putra, S.Pd.</td>
+                                <td>Siti Fatimah</td>
                                 <td>
                                     <a href="edit-mapel.php" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
