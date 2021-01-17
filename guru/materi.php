@@ -6,13 +6,13 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
-                <h3 class="box-title">Tabel Mapel</h3>
+                <h3 class="box-title">Tabel Materi</h3>
                 <!-- Button trigger modal -->
                 <div class="row">
                     <div class="col-lg-9">
                         <button type="button" class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus-square"></i>
-                                Tambah Mapel
+                                Tambah Materi
                         </button>
                         <br><br>
                     </div>
@@ -30,7 +30,7 @@
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Mapel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Materi</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -38,7 +38,7 @@
                         <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nama Mapel</label>
+                                <label for="exampleInputEmail1">Nama Materi</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group">
@@ -63,7 +63,8 @@
                         <thead>
                             <tr>
                                 <th class="border-top-0">No</th>
-                                <th class="border-top-0">Nama Mapel</th>
+                                <th class="border-top-0">Mata Pelajaran</th>
+                                <th class="border-top-0">Materi</th>
                                 <th class="border-top-0">File</th>
                                 <th class="border-top-0">Aksi</th>
                             </tr>
@@ -72,31 +73,33 @@
                             <tr>
                                 <td>1</td>
                                 <td>B Indonesia</td>
-                                <td>Rp</td>
+                                <td>BAB I Parafrase</td>
+                                <td>BAB I Parafrase.pdf</td>
                                 <td>
-                                    <a href="edit-mapel.php" class="btn btn-warning">
+                                    <a href="edit-materi.php" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <a href="" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-mapel.php" class="btn btn-info">
+                                    <a href="detail-materi.php" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>B Indonesia</td>
-                                <td>Rp</td>
+                                <td>2</td>
+                                <td>Matematika</td>
+                                <td>BAB I Aritmatika dan Geometri</td>
+                                <td>BAB I Aritmatika dan Geometri.pdf</td>
                                 <td>
-                                    <a href="edit-mapel.php" class="btn btn-warning">
+                                    <a href="edit-materi.php" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <a href="" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-mapel.php" class="btn btn-info">
+                                    <a href="detail-materi.php" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>
