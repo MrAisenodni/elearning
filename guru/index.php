@@ -14,7 +14,7 @@
         </div>
         <div class="col-lg-6 col-sm-6 col-xs-12">
             <div class="white-box analytics-info">
-                <h3 class="box-title">Mapel</h3>
+                <h3 class="box-title">Materi</h3>
                 <ul class="list-inline two-part d-flex align-items-center mb-0">
                     <li class="ml-auto"><span class="counter text-purple">869</span></li>
                 </ul>
