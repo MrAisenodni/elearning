@@ -10,6 +10,11 @@
                 <!-- Button trigger modal -->
                 <div class="row">
                     <div class="col-lg-9">
+                        <button type="button" class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-plus-square"></i>
+                                Tambah Tugas 
+                        </button>
+                        <br><br>
                     </div>
                     <div class="col-lg-3">
                         <form>
@@ -19,13 +24,47 @@
                         </form>
                     </div>
                 </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Tugas</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nama Tugas</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">File</label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            <i class="fas fa-window-close"></i> Tutup
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-check"></i> Simpan
+                        </button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th class="border-top-0">No</th>
-                                <th class="border-top-0">ID Mata Pelajaran</th>
-                                <th class="border-top-0">Nama Tugas</th>
+                                <th class="border-top-0">Mata Pelajaran</th>
+                                <th class="border-top-0">File Tugas</th>
+                                <th class="border-top-0">Tugas Siswa</th>
                                 <th class="border-top-0">Aksi</th>
                             </tr>
                         </thead>
@@ -33,18 +72,32 @@
                             <tr>
                                 <td>1</td>
                                 <td>B Indonesia</td>
-                                <td>4KA25.pdf</td>
+                                <td>Tugas_Pertemuan_1.pdf</td>
+                                <td>A_Siti-Fatimah_1710512010.pdf</td>
                                 <td>
+                                    <a href="edit-materi.php" class="btn btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="" class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
                                     <a href="" class="btn btn-info">
                                         <i class="fas fa-download"></i>
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>B Indonesia</td>
-                                <td>4KA25.pdf</td>
+                                <td>2</td>
+                                <td>Matematika</td>
+                                <td>Tugas_Pertemuan_1.pdf</td>
+                                <td>A_Siti_Fatimah_1710512010.pdf</td>
                                 <td>
+                                    <a href="edit-materi.php" class="btn btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="" class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
                                     <a href="" class="btn btn-info">
                                         <i class="fas fa-download"></i>
                                     </a>
