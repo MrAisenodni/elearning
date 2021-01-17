@@ -14,14 +14,15 @@
     <title>Virtual Class</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../asset/admin/plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/admin/plugins/images/favicon.png">
     <!-- Custom CSS -->
-    <link href="../asset/admin/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../asset/admin/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <link href="asset/admin/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="asset/admin/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <!-- Custom CSS -->
-    <link href="../asset/admin/css/style.min.css" rel="stylesheet">
+    <link href="asset/admin/css/style.min.css" rel="stylesheet">
 </head>
-
+<?php require_once('config/koneksi.php');
+require_once('session.php'); ?>
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -50,13 +51,13 @@
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="../asset/admin/plugins/images/logo-icon.png" alt="homepage" />
+                            <img src="asset/admin/plugins/images/logo-icon.png" alt="homepage" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../asset/admin/plugins/images/logo-text.png" alt="homepage" />
+                            <img src="asset/admin/plugins/images/logo-text.png" alt="homepage" />
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -86,7 +87,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li>
-                            <a class="profile-pic" href="#"><span class="text-white font-medium">Admin</span></a>
+                            <a class="profile-pic" href="#"><span class="text-white font-medium"><?= $namau ?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -116,8 +117,8 @@
                                     aria-hidden="true"></i><span class="hide-menu">Vclass 1</span></a></li>
                         <hr>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="login.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
-                                    aria-hidden="true"></i><span class="hide-menu">logout</span></a></li>
+                                href="logout.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
+                                    aria-hidden="true"></i><span class="hide-menu">Logout</span></a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
