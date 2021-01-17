@@ -86,7 +86,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li>
-                            <a class="profile-pic" href="#"><span class="text-white font-medium">Admin</span></a>
+                            <a class="profile-pic" href="#"><span class="text-white font-medium">Guru</span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -112,8 +112,8 @@
                                 href="index.php" aria-expanded="false"><i class="fas fa-clock fa-fw"
                                     aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="mapel.php" aria-expanded="false">
-                                <i class="fas fa-clipboard-list" aria-hidden="true"></i><span class="hide-menu">Mapel</span></a>
+                                href="materi.php" aria-expanded="false">
+                                <i class="fas fa-clipboard-list" aria-hidden="true"></i><span class="hide-menu">Materi</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="tugas.php" aria-expanded="false">
