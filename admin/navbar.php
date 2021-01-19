@@ -11,7 +11,7 @@
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>SMAN 1 Megamendung</title>
+    <title>SMAN 1 Megamendung | <?= $title; ?></title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../asset/logo.png">
@@ -21,7 +21,10 @@
     <!-- Custom CSS -->
     <link href="../asset/admin/css/style.min.css" rel="stylesheet">
 </head>
-
+<?php
+ob_start();
+require_once('../config/koneksi.php');
+require_once('session.php');?>
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -86,7 +89,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li>
-                            <a class="profile-pic" href="#"><span class="text-white font-medium">Admin</span></a>
+                            <a class="profile-pic" href="#"><span class="text-white font-medium"><?= $namau; ?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -116,12 +119,20 @@
                                 <i class="fas fa-clipboard-list" aria-hidden="true"></i><span class="hide-menu">Mapel</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="pertemuan.php" aria-expanded="false">
+                                <i class="fas fa-calendar" aria-hidden="true"></i><span class="hide-menu">Pertemuan</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="materi.php" aria-expanded="false">
+                                <i class="fas fa-book" aria-hidden="true"></i><span class="hide-menu">Materi</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="pengguna.php" aria-expanded="false"><i class="fa fa-user"
                                     aria-hidden="true"></i><span class="hide-menu">Pengguna</span></a></li>
                         <hr>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="login.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
-                                    aria-hidden="true"></i><span class="hide-menu">logout</span></a></li>
+                                href="logout.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
+                                    aria-hidden="true"></i><span class="hide-menu">Logout</span></a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

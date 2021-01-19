@@ -1,17 +1,16 @@
 <?php
-$title = 'Mata Pelajaran';
+$title = 'Materi';
 require_once('navbar.php');
 
 if(isset($_POST['tambah'])){
   $mapel = $_POST['mapel'];
-  $kelas = $_POST['kelas'];
-  $guru = $_POST['guru'];
+  $pert = $_POST['pert'];
 
-  $add = mysqli_query($con, "INSERT INTO tbl_mapel VALUES('','$guru','$mapel','$kelas')");
+  $add = mysqli_query($con, "INSERT INTO tbl_materi VALUES('','$mapel','$pert')");
   if($add){
-    header('location:mapel.php?stat=input_success');
+    header('location:pertemuan.php?stat=input_success');
   }else{
-    header('location:mapel.php?stat=input_failed');
+    header('location:pertemuan.php?stat=input_failed');
   }
 }
 ?>
@@ -22,13 +21,13 @@ if(isset($_POST['tambah'])){
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
-                <h3 class="box-title">Tabel Mapel</h3>
+                <h3 class="box-title">Tabel Pertemuan</h3>
                 <!-- Button trigger modal -->
                 <div class="row">
                     <div class="col-lg-9">
                         <button type="button" class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus-square"></i>
-                                Tambah Mapel
+                                Tambah Pertemuan
                         </button>
                         <br><br>
                     </div>
@@ -46,7 +45,7 @@ if(isset($_POST['tambah'])){
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Mata Pelajaran</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Pertemuan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -55,28 +54,26 @@ if(isset($_POST['tambah'])){
                         <form method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Mata Pelajaran</label>
-                                <input type="text" name="mapel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Kelas</label>
-                                <input type="text" name="kelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Guru</label>
-                                <select class="form-control" name="guru">
-                                  <option value="">--Pilih Nama Guru--</option>
+                                <select class="form-control" name="mapel">
+                                  <option value="">--Pilih Mata Pelajaran--</option>
                                   <?php
-                                  $sql = mysqli_query($con, "SELECT id_user,nama,akses FROM tbl_user WHERE akses='gur'");
+                                  $sql = "";
+                                  if($aksesu=='gur'){
+                                    $sql = mysqli_query($con, "SELECT id_mapel,id_user,mapel,kelas FROM tbl_mapel WHERE id_user='$idu'");
+                                  }else{
+                                    $sql = mysqli_query($con, "SELECT id_mapel,tbl_mapel.id_user,mapel,nama,tbl_mapel.kelas,akses FROM tbl_mapel
+                                      INNER JOIN tbl_user ON tbl_user.id_user = tbl_mapel.id_user WHERE akses='gur'");
+                                  }
                                   while($data = mysqli_fetch_array($sql)){
                                   ?>
-                                    <option value="<?= $data['id_user'] ?>"><?= $data['nama'] ?></option>
+                                    <option value="<?= $data['id_mapel'] ?>"><?= $data['mapel'] ?></option>
                                   <?php }?>
                                 </select>
                             </div>
-                            <!-- <div class="form-group">
-                                <label for="exampleInputEmail1">Siswa</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div> -->
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nama Pertemuan</label>
+                                <input type="text" name="pert" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -96,7 +93,7 @@ if(isset($_POST['tambah'])){
                             <tr>
                                 <th class="border-top-0">No</th>
                                 <th class="border-top-0">Mata Pelajaran</th>
-                                <th class="border-top-0">Kelas</th>
+                                <th class="border-top-0">Pertemuan</th>
                                 <th class="border-top-0">Guru</th>
                                 <th class="border-top-0">Aksi</th>
                             </tr>
@@ -104,22 +101,24 @@ if(isset($_POST['tambah'])){
                         <tbody>
                           <?php
                             $no = 1;
-                            $sql = mysqli_query($con,'SELECT id_mapel,mapel,tbl_mapel.kelas as kelas,nama FROM tbl_mapel INNER JOIN tbl_user on tbl_user.id_user = tbl_mapel.id_user');
+                            $sql = mysqli_query($con,'SELECT id_pert,mapel,pertemuan,nama FROM tbl_pertemuan
+                              INNER JOIN tbl_mapel on tbl_mapel.id_mapel = tbl_pertemuan.id_mapel
+                              INNER JOIN tbl_user on tbl_user.id_user = tbl_mapel.id_user');
                             while($data = mysqli_fetch_array($sql)){
                           ?>
                             <tr>
                                 <td><?= $no ?></td>
                                 <td><?= $data['mapel'] ?></td>
-                                <td><?= $data['kelas'] ?></td>
+                                <td><?= $data['pertemuan'] ?></td>
                                 <td><?= $data['nama'] ?></td>
                                 <td>
-                                    <a href="edit-mapel.php?id=<?= $data['id_mapel'] ?>" class="btn btn-warning">
+                                    <a href="edit-pertemuan.php?id=<?= $data['id_pert'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="del-mapel.php?id=<?= $data['id_mapel'] ?>" class="btn btn-danger">
+                                    <a href="del-pertemuan.php?id=<?= $data['id_pert'] ?>" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-mapel.php?id=<?= $data['id_mapel'] ?>" class="btn btn-info">
+                                    <a href="detail-pertemuan.php?id=<?= $data['id_pert'] ?>" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>

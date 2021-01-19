@@ -1,8 +1,10 @@
 <?php require_once('navbar.php');
 if(isset($_GET['id'])){
   $id = $_GET['id'];
-  $search = mysqli_query($con, "SELECT id_mapel,mapel,tbl_mapel.kelas as kelas,nama FROM tbl_mapel INNER JOIN tbl_user on tbl_user.id_user = tbl_mapel.id_user
-     WHERE id_mapel='$id'");
+  $search = mysqli_query($con, "SELECT id_pert,mapel,pertemuan,nama FROM tbl_pertemuan
+    INNER JOIN tbl_mapel on tbl_mapel.id_mapel = tbl_pertemuan.id_mapel
+    INNER JOIN tbl_user on tbl_user.id_user = tbl_mapel.id_user
+    WHERE id_pert='$id'");
   $data = mysqli_fetch_array($search);
 }
 ?>
@@ -19,15 +21,15 @@ if(isset($_GET['id'])){
                                 <input type="text" disabled value="<?= $data['mapel']?>" name="mapel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Kelas</label>
-                                <input type="text" disabled value="<?= $data['kelas']?>" name="kelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="exampleInputEmail1">Pertemuan</label>
+                                <input type="text" disabled value="<?= $data['pertemuan']?>" name="kelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Guru</label>
                                 <input type="text" disabled value="<?= $data['nama']?>" name="kelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             </form>
-                            <a href="mapel.php" class="btn btn-primary">
+                            <a href="pertemuan.php" class="btn btn-primary">
                                 <i class="fas fa-arrow-left"></i> Kembali
                             </a>
                           </div>

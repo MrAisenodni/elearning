@@ -1,4 +1,26 @@
-<?php require_once('navbar.php');?>
+<?php
+  $title = 'Pengguna';
+  require_once('navbar.php');
+
+  if(isset($_POST['tambah'])){
+    $nama = $_POST['namadpn']." ".$_POST['namablk'];
+    $jenkel = $_POST['jk'];
+    $tgl_lahir = $_POST['tgllahir'];
+    $telp = $_POST['telp'];
+    $kelas = $_POST['kelas'];
+    $uname= $_POST['namadpn'].substr($_POST['namablk'], 0, 1).date('s').'@sman1.sch.id';
+    $pass = md5('sementara');
+    $akses = $_POST['akses'];
+
+    $add = mysqli_query($con, "INSERT INTO tbl_user VALUES('','$nama','$jenkel','$tgl_lahir','$telp','$kelas','$uname','$pass','$akses')");
+    if($add){
+      header('location:pengguna.php?stat=input_success');
+    }else{
+      header('location:pengguna.php?stat=input_failed');
+    }
+  }
+
+?>
 <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Start Page Content -->
@@ -24,7 +46,7 @@
                         </form>
                     </div>
                 </div>
-                    
+
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -36,21 +58,31 @@
                                 </button>
                             </div>
                                 <div class="modal-body">
-                            <form>
+                            <form method="post" action="">
+                              <div class="row">
+                                <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Nama</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <label for="exampleInputEmail1">Nama Depan</label>
+                                    <input type="text" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="namadpn">
                                 </div>
+                                </div>
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nama Belakang</label>
+                                    <input type="text" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="namablk">
+                                </div>
+                                </div>
+                              </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Jenis Kelamin</label>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                      <input class="form-check-input" type="radio" name="jk" id="exampleRadios1" value="L">
                                       <label class="form-check-label" for="exampleRadios1">
                                         Laki - Laki
                                       </label>
                                     </div>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                      <input class="form-check-input" type="radio" name="jk" id="exampleRadios2" value="P">
                                       <label class="form-check-label" for="exampleRadios2">
                                         Perempuan
                                       </label>
@@ -58,32 +90,36 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tgl Lahir</label>
-                                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input type="date" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tgllahir">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Telp</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="telp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Username</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <label for="exampleInputEmail1">Kelas</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="kelas">
                                 </div>
+                                <!-- <div class="form-group">
+                                    <label for="exampleInputEmail1">Username</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="usr">
+                                </div> -->
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tipe User</label>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                      <input class="form-check-input" type="radio" name="akses" id="exampleRadios1" value="adm" checked>
                                       <label class="form-check-label" for="exampleRadios1">
                                         Admin
                                       </label>
                                     </div>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                      <input class="form-check-input" type="radio" name="akses" id="exampleRadios2" value="gur">
                                       <label class="form-check-label" for="exampleRadios2">
                                         Guru
                                       </label>
                                     </div>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                      <input class="form-check-input" type="radio" name="akses" id="exampleRadios2" value="usr">
                                       <label class="form-check-label" for="exampleRadios2">
                                         Peserta Didik
                                       </label>
@@ -93,7 +129,7 @@
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                         <i class="fas fa-window-close"></i> Tutup
                                     </button>
-                                    <button type="button" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" name="tambah">
                                         <i class="fas fa-check"></i> Simpan
                                     </button>
                                 </div>
@@ -109,48 +145,35 @@
                                 <th class="border-top-0">No</th>
                                 <th class="border-top-0">Nama</th>
                                 <th class="border-top-0">No HP</th>
+                                <th class="border-top-0">Kelas</th>
                                 <th class="border-top-0">Tipe Pengguna</th>
                                 <th class="border-top-0">Username</th>
                                 <th class="border-top-0">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                          <?php
+                            $no = 1;
+                            $sql = mysqli_query($con,'SELECT * FROM tbl_user');
+                            while($data = mysqli_fetch_array($sql)){
+                          ?>
                             <tr>
-                                <td>1</td>
-                                <td>Dr. Sucipto Mangunjaya, S.Pd.</td>
-                                <td>085718093600</td>
-                                <td>Guru</td>
-                                <td>ciptokunjaya@smanim.com</td>
+                                <td><?= $no ;?></td>
+                                <td><?= $data['nama'] ;?></td>
+                                <td><?= $data['telp'] ;?></td>
+                                <td><?= $data['kelas'] ;?></td>
+                                <td><?= $data['akses'] ;?></td>
+                                <td><?= $data['username'] ;?></td>
                                 <td>
-                                    <a href="edit-mapel.php" class="btn btn-warning">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="" class="btn btn-danger">
+                                    <a href="del-pengguna.php?id=<?= $data['id_user'] ;?>" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-pengguna.php" class="btn btn-info">
+                                    <a href="detail-pengguna.php?id=<?= $data['id_user'] ;?>" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Siti Fatimah</td>
-                                <td>089312454461</td>
-                                <td>Siswa</td>
-                                <td>sivasiva@gmail.com</td>
-                                <td>
-                                    <a href="edit-mapel.php" class="btn btn-warning">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                    <a href="detail-pengguna.php" class="btn btn-info">
-                                        <i class="fas fa-list"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php $no++; } ?>
                         </tbody>
                     </table>
                 </div>

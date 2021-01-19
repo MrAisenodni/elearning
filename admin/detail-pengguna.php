@@ -1,4 +1,10 @@
-<?php require_once('navbar.php');?>
+<?php require_once('navbar.php');
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+  $search = mysqli_query($con, "SELECT * FROM tbl_user WHERE id_user='$id'");
+  $data = mysqli_fetch_array($search);
+}
+?>
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
@@ -9,29 +15,36 @@
                           <form>
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Nama</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                <input type="text" value="<?= $data['nama'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
                               </div>
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Jenis Kelamin</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                <input type="text" value="<?= $data['jenkel'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
                               </div>
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Tgl Lahir</label>
-                                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                <input type="date" value="<?= $data['tgl_lahir'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
                               </div>
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Telp</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                <input type="text" value="<?= $data['telp'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Kelas</label>
+                                <input type="text" value="<?= $data['kelas'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
                               </div>
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Username</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                <input type="email" value="<?= $data['username'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
                               </div>
                               <div class="form-group">
-                                <label for="exampleInputEmail1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                <label for="exampleInputEmail1">Akses</label>
+                                <input type="text" value="<?= $data['akses'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
                               </div>
                             </form>
+                            <a href="pengguna.php" class="btn btn-primary">
+                                <i class="fas fa-arrow-left"></i> Kembali
+                            </a>
                           </div>
                     </div>
                 </div>
