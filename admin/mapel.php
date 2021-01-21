@@ -22,6 +22,7 @@ if(isset($_POST['tambah'])){
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
+                <?php require_once('../alert.php') ?>
                 <h3 class="box-title">Tabel Mapel</h3>
                 <!-- Button trigger modal -->
                 <div class="row">

@@ -119,14 +119,6 @@ require_once('session.php');?>
                                 <i class="fas fa-clipboard-list" aria-hidden="true"></i><span class="hide-menu">Mapel</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pertemuan.php" aria-expanded="false">
-                                <i class="fas fa-calendar" aria-hidden="true"></i><span class="hide-menu">Pertemuan</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="materi.php" aria-expanded="false">
-                                <i class="fas fa-book" aria-hidden="true"></i><span class="hide-menu">Materi</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="pengguna.php" aria-expanded="false"><i class="fa fa-user"
                                     aria-hidden="true"></i><span class="hide-menu">Pengguna</span></a></li>
                         <hr>

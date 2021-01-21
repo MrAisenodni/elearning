@@ -58,7 +58,7 @@ if(isset($_POST['up'])){
                             <button type="submit" class="btn btn-success" name="up">
                                 <i class="fas fa-save"></i> Simpan
                             </button>
-                            <a href="pengguna.php" class="btn btn-primary">
+                            <a href="mapel.php" class="btn btn-primary">
                                 <i class="fas fa-arrow-left"></i> Kembali
                             </a>
                             </form>

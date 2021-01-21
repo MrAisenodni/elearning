@@ -9,7 +9,7 @@
     $telp = $_POST['telp'];
     $kelas = $_POST['kelas'];
     $uname= $_POST['namadpn'].substr($_POST['namablk'], 0, 1).date('s').'@sman1.sch.id';
-    $pass = md5('sementara');
+    $pass = md5($_POST['pass']);
     $akses = $_POST['akses'];
 
     $add = mysqli_query($con, "INSERT INTO tbl_user VALUES('','$nama','$jenkel','$tgl_lahir','$telp','$kelas','$uname','$pass','$akses')");
@@ -30,6 +30,7 @@
             <div class="white-box">
                 <h3 class="box-title">Tabel Pengguna</h3>
                 <!-- Button trigger modal -->
+                    <?php require_once('../alert.php') ?>
                 <div class="row">
                     <div class="col-lg-9">
                         <button type="button" class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#exampleModal">
@@ -125,6 +126,10 @@
                                       </label>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="pass">
+                                </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                         <i class="fas fa-window-close"></i> Tutup
@@ -165,6 +170,9 @@
                                 <td><?= $data['akses'] ;?></td>
                                 <td><?= $data['username'] ;?></td>
                                 <td>
+                                    <a href="edit-pengguna.php?id=<?= $data['id_user'] ?>" class="btn btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                     <a href="del-pengguna.php?id=<?= $data['id_user'] ;?>" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
