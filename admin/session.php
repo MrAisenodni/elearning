@@ -10,7 +10,7 @@
     $unameu = $_SESSION['uname'];
     $aksesu = $_SESSION['akses'];
   }else{
-    header('location:login.php?stat=session_timeout');
+    header('location:../login.php?stat=session_timeout');
     exit();
   }
 ?>

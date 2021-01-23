@@ -67,7 +67,7 @@ if(isset($_POST['tambah'])){
                                   }
                                   while($data = mysqli_fetch_array($sql)){
                                   ?>
-                                    <option value="<?= $data['id_mapel'] ?>"><?= $data['mapel'] ?></option>
+                                    <option value="<?= $data['id_mapel'] ?>"><?php if($aksesu=='adm'){echo $data['mapel']." | ".$data['nama']; }else{echo $data['mapel']; }  ?></option>
                                   <?php }?>
                                 </select>
                             </div>
