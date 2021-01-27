@@ -1,5 +1,5 @@
 <?php
-$title = 'Mata Pelajaran';
+$title = 'Kelola Mata Pelajaran';
 require_once('navbar.php');
 
 if(isset($_POST['tambah'])){

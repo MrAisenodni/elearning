@@ -1,4 +1,7 @@
-<?php require_once('navbar.php');?>
+<?php
+$title = 'Kelola Materi';
+require_once('navbar.php');
+?>
 <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Start Page Content -->
@@ -8,13 +11,10 @@
             <div class="white-box">
                 <h3 class="box-title">Tabel Materi</h3>
                 <!-- Button trigger modal -->
+                <?php require_once('../alert.php'); ?>
                 <div class="row">
                     <div class="col-lg-9">
-                        <button type="button" class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#exampleModal">
-                                <i class="fas fa-plus-square"></i>
-                                Tambah Materi
-                        </button>
-                        <br><br>
+                        <a href="tambah-materi.php" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Materi</a>
                     </div>
                     <div class="col-lg-3">
                         <form>
@@ -24,86 +24,43 @@
                         </form>
                     </div>
                 </div>
-                    
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Materi</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nama Materi</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">File</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            <i class="fas fa-window-close"></i> Tutup
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            <i class="fas fa-check"></i> Simpan
-                        </button>
-                        </div>
-                        </form>
-                    </div>
-                    </div>
-                </div>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th class="border-top-0">No</th>
                                 <th class="border-top-0">Mata Pelajaran</th>
+                                <th class="border-top-0">Pertemuan</th>
                                 <th class="border-top-0">Materi</th>
                                 <th class="border-top-0">File</th>
                                 <th class="border-top-0">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                          <?php
+                            $no = 1;
+                            $sql = mysqli_query($con,"SELECT b.mapel, a.pertemuan, a.nama, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = $idu AND a.tipe = 'mod'");
+                            while($data = mysqli_fetch_array($sql)){
+                          ?>
                             <tr>
-                                <td>1</td>
-                                <td>B Indonesia</td>
-                                <td>BAB I Parafrase</td>
-                                <td>BAB I Parafrase.pdf</td>
+                                <td><?= $no ?></td>
+                                <td><?= $data['mapel'] ?></td>
+                                <td><?= $data['pertemuan'] ?></td>
+                                <td><?= $data['nama'] ?></td>
+                                <td><?= $data['file'] ?></td>
                                 <td>
-                                    <a href="edit-materi.php" class="btn btn-warning">
+                                    <a href="edit-materi.php?id=<?= $data['id_file'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="" class="btn btn-danger">
+                                    <a href="del-materi.php?id=<?= $data['id_file'] ?>" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-materi.php" class="btn btn-info">
+                                    <a href="detail-materi.php?id=<?= $data['id_file'] ?>" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Matematika</td>
-                                <td>BAB I Aritmatika dan Geometri</td>
-                                <td>BAB I Aritmatika dan Geometri.pdf</td>
-                                <td>
-                                    <a href="edit-materi.php" class="btn btn-warning">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                    <a href="detail-materi.php" class="btn btn-info">
-                                        <i class="fas fa-list"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                          <?php $no++; }?> 
                         </tbody>
                     </table>
                 </div>

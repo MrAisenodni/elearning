@@ -24,8 +24,8 @@
 <?php
 ob_start();
 require_once('../config/koneksi.php');
-require_once('session.php');?>
-<body>
+require_once('../session.php');?>
+<body onload="disAkses()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -131,7 +131,7 @@ require_once('session.php');?>
                                     aria-hidden="true"></i><span class="hide-menu">Pengguna</span></a></li>
                         <hr>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="logout.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
+                                href="../logout.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
                                     aria-hidden="true"></i><span class="hide-menu">Logout</span></a></li>
                     </ul>
                 </nav>

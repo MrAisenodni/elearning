@@ -21,7 +21,10 @@
     <!-- Custom CSS -->
     <link href="../asset/admin/css/style.min.css" rel="stylesheet">
 </head>
-
+<?php
+ob_start();
+require_once('../config/koneksi.php');
+require_once('../session.php');?>
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -86,7 +89,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li>
-                            <a class="profile-pic" href="#"><span class="text-white font-medium">Guru</span></a>
+                            <a class="profile-pic" href="#"><span class="text-white font-medium"><?= $namau ?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -121,7 +124,7 @@
                         </li>
                         <hr>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="login.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
+                                href="../logout.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
                                     aria-hidden="true"></i><span class="hide-menu">logout</span></a></li>
                     </ul>
                 </nav>

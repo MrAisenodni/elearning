@@ -9,7 +9,7 @@
       $psn = "Data Berhasil Ditambahkan";
     }elseif($stat == "input_failed"){
       $cls = "alert alert-danger";
-      $psn = "Query Error : ".mysqli_errno($con)." - ".mysqli_error($con);
+      $psn = "Data Gagal Ditambahkan";
     }elseif($stat == "input_null"){
       $cls = "alert alert-danger";
       $psn = "Data Belum Lengkap";
@@ -25,12 +25,12 @@
     }elseif($stat == "update_failed"){
       $cls = "alert alert-danger";
       $psn = "Data Gagal Diubah";
-    }elseif($stat == "file_too_large"){
+    }elseif($stat == "size_file_too_large"){
       $cls = "alert alert-danger";
-      $psn = "Input Failed, File Size is Too Large";
+      $psn = "Ukuran File terlalu besar";
     }elseif($stat == "file_ext"){
       $cls = "alert alert-danger";
-      $psn = "Input Failed, File Extension is not Allowed";
+      $psn = "Format File tidak didukung";
     }elseif($stat == "unlink_failed"){
       $cls = "alert alert-danger";
       $psn = "Unlink Failed";
@@ -52,9 +52,9 @@
     }elseif($stat == "not_sync"){
       $cls = "alert alert-danger";
       $psn = "Konfirmasi Password dan Password Baru Tidak Sama";
-    }elseif($stat == "wrong_pass"){
+    }elseif($stat == "wrong_password"){
       $cls = "alert alert-danger";
-      $psn = "Password Salah";
+      $psn = "Password Salah!";
     }elseif($stat == "wrong"){
       $cls = "alert alert-danger";
       $psn = "Username dan Password Salah";

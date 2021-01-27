@@ -6,15 +6,15 @@ if(isset($_GET['id'])){
 }
 
 if(isset($_POST['up'])){
-    $nama = $_POST['nama'];
-    $jenkel = $_POST['jk'];
-    $tgl_lahir = $_POST['tgllahir'];
-    $telp = $_POST['telp'];
-    $kelas = $_POST['kelas'];
-    $pass = md5($_POST['pass']);
-    $akses = $_POST['akses'];
+  $nama = $_POST['nama'];
+  $jenkel = $_POST['jk'];
+  $tgl_lahir = $_POST['tgllahir'];
+  $telp = $_POST['telp'];
+  $kelas = $_POST['kelas'];
+  $pass = md5($_POST['pass']);
+  $akses = $_POST['akses'];
 
-    $add = mysqli_query($con, "UPDATE tbl_user SET
+  $add = mysqli_query($con, "UPDATE tbl_user SET
   nama='$nama',
   jenkel='$jenkel',
   tgl_lahir='$tgl_lahir',
@@ -22,12 +22,12 @@ if(isset($_POST['up'])){
   kelas='$kelas',
   akses='$akses',
   password='$pass' WHERE id_user='$id'");
-    if($add){
-      header('location:pengguna.php?stat=update_success');
-    }else{
-      header('location:pengguna.php?stat=update_failed');
-    }
+  if($add){
+    header('location:pengguna.php?stat=update_success');
+  }else{
+    header('location:pengguna.php?stat=update_failed');
   }
+}
 
 ?>
             <div class="container-fluid">
@@ -37,16 +37,34 @@ if(isset($_POST['up'])){
                 <div class="row">
                     <div class="col-md-8">
                         <div class="white-box">
-                          <?php require_once('../alert.php') ?>
                           <form method="post" action="">
                               <div class="row">
-                                <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Nama Lengkap</label>
-                                    <input type="text" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nama" value="<?= $data['nama'] ?>">
-                                </div>
-                                </div>
-                              </div>
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">Tipe User</label>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="akses" id="adm" value="adm" <?php if($data['akses']=='adm'){ echo 'checked'; } ?> onclick="disAkses()">
+                                      <label class="form-check-label" for="exampleRadios1">
+                                        Admin
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="akses" id="gur" value="gur" <?php if($data['akses']=='gur'){ echo 'checked'; } ?> onclick="disAkses()">
+                                      <label class="form-check-label" for="exampleRadios2">
+                                        Guru
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="akses" id="usr" value="usr" <?php if($data['akses']=='usr'){ echo "checked"; } ?> onclick="disAkses()">
+                                      <label class="form-check-label" for="exampleRadios2">
+                                        Peserta Didik
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">Nama Lengkap</label>
+                                      <input type="text" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nama" value="<?= $data['nama'] ?>" required>
+                                  </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Jenis Kelamin</label>
                                     <div class="form-check">
@@ -64,40 +82,15 @@ if(isset($_POST['up'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tgl Lahir</label>
-                                    <input type="date" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tgllahir" value="<?= $data['tgl_lahir'] ?>">
+                                    <input type="date" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tgllahir" value="<?= $data['tgl_lahir'] ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Telp</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="telp" value="<?= $data['telp'] ?>">
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="telp" value="<?= $data['telp'] ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Kelas</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="kelas" value="<?= $data['kelas'] ?>">
-                                </div>
-                                <!-- <div class="form-group">
-                                    <label for="exampleInputEmail1">Username</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="usr">
-                                </div> -->
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Tipe User</label>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="akses" id="exampleRadios1" value="adm" <?php if($data['akses']=='adm'){ echo 'checked'; } ?>>
-                                      <label class="form-check-label" for="exampleRadios1">
-                                        Admin
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="akses" id="exampleRadios2" value="gur" <?php if($data['akses']=='gur'){ echo 'checked'; } ?>>
-                                      <label class="form-check-label" for="exampleRadios2">
-                                        Guru
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="akses" id="exampleRadios2" value="usr" <?php if($data['akses']=='usr'){ echo "checked"; } ?>>
-                                      <label class="form-check-label" for="exampleRadios2">
-                                        Peserta Didik
-                                      </label>
-                                    </div>
+                                    <input type="text" class="form-control" id="kelas" aria-describedby="emailHelp" name="kelas" value="<?= $data['kelas'] ?>" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Username</label>
@@ -105,7 +98,7 @@ if(isset($_POST['up'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Password Baru</label>
-                                    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="pass">
+                                    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="pass" required>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-success" name="up">
@@ -133,3 +126,21 @@ if(isset($_POST['up'])){
                 <!-- ============================================================== -->
             </div>
 <?php require_once('footer.php');?>
+<script>
+    function disAkses(){
+    var usr = document.getElementById('usr');
+    var gur = document.getElementById('gur');
+    var adm = document.getElementById('adm');
+    var kelas = document.getElementById('kelas');
+    if(adm.checked == true){
+        kelas.disabled = true;
+    } else if (gur.checked == true) {
+        kelas.disabled = true;
+    } else if (usr.checked) {
+        kelas.disabled = false;
+        kelas.required = true;
+    } else {
+        kelas.disabled = true;
+    }
+  }
+</script>

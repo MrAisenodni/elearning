@@ -48,6 +48,8 @@ if(isset($_POST['login'])){
 
 		if($data['akses']=='adm'){
 			header('location:admin/index.php?stat=login_success');
+		}elseif($data['akses']=='gur'){
+			header('location:guru/index.php?stat=login_success');
 		}else{
 			header('location:index.php?stat=login_success');
 		}
@@ -65,7 +67,7 @@ if(isset($_POST['login'])){
 					<span class="login100-form-title p-b-33">
 						Login
 					</span>
-
+					<?php require_once('alert.php'); ?>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100-1"></span>
