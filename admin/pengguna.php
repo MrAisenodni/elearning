@@ -74,6 +74,27 @@
                                 </div>
                                 </div>
                               </div>
+                              <div class="form-group">
+                                    <label for="exampleInputPassword1">Tipe User</label>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="akses" id="adm" value="adm" onclick="disAkses()">
+                                      <label class="form-check-label" for="exampleRadios1">
+                                        Admin
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="akses" id="gur" value="gur" onclick="disAkses()">
+                                      <label class="form-check-label" for="exampleRadios2">
+                                        Guru
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="akses" id="usr" value="usr" onclick="disAkses()">
+                                      <label class="form-check-label" for="exampleRadios2">
+                                        Siswa
+                                      </label>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Jenis Kelamin</label>
                                     <div class="form-check">
@@ -105,27 +126,6 @@
                                     <label for="exampleInputEmail1">Username</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="usr">
                                 </div> -->
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Tipe User</label>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="akses" id="adm" value="adm" onclick="disAkses()">
-                                      <label class="form-check-label" for="exampleRadios1">
-                                        Admin
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="akses" id="gur" value="gur" onclick="disAkses()">
-                                      <label class="form-check-label" for="exampleRadios2">
-                                        Guru
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="akses" id="usr" value="usr" onclick="disAkses()">
-                                      <label class="form-check-label" for="exampleRadios2">
-                                        Siswa
-                                      </label>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Password</label>
                                     <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="pass" required>

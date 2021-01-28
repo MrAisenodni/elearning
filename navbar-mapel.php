@@ -114,13 +114,13 @@ require_once('session.php'); ?>
                         <?php 
                         if(isset($_GET['kode'])){
                           $kd = $_GET['kode'];
-                          $sql = mysqli_query($con, "SELECT a.kelas, b.nama, a.mapel FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user WHERE a.id_user='$kd'");
+                          $sql = mysqli_query($con, "SELECT a.kelas, b.nama, a.mapel FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user WHERE a.id_user='$kd' AND a.kelas='$kelasu'");
                           $data = mysqli_fetch_array($sql);
                         }
                         ?>
                         <li class="sidebar-item py-2 mx-n3"> 
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i class="fas fa-book fa-fw" aria-hidden="true">
-                                </i><span class="hide-menu"><?php echo $data['mapel']." | ".$data['kelas']; ?></span>
+                                </i><span class="hide-menu"><?php echo $data['mapel']." | ".$kelasu; ?></span>
                             </a>
                         </li>
                         <?php for($i=1;$i<=20;$i++) { ?>

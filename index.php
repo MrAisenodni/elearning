@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <a href="topik.php?kode=<?= $data['id_user']?>" class="card-title"><h5><?php echo $data['kelas']." | ".$data['nama']." | ".$data['mapel']?></h5></a>
+                                            <a href="topik.php?kode=<?= $data['id_user']?>" class="card-title"><h5><?php echo $kelasu." | ".$data['nama']." | ".$data['mapel']?></h5></a>
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <?php $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user WHERE a.kelas='$kelasu'");
                             while ($data = mysqli_fetch_array($sql)) { ?>
-                            <a href="topik.php?kode=<?= $data['id_user']; ?>" class="card-title"><h5><?php echo $data['kelas']." | ".$data['nama']." | ".$data['mapel']?></h5></a>
+                            <a href="topik.php?kode=<?= $data['id_user']; ?>" class="card-title"><h5><?php echo $kelasu." | ".$data['nama']." | ".$data['mapel']?></h5></a>
                             <hr>
                         <?php } ?>
                         </div>
