@@ -28,7 +28,7 @@
                                 </div>
                             </form>
                             <?php } while ($data3 = mysqli_fetch_array($sql3)) { ?>
-                            <a href="pengumpulan-tugas.php?kode=<?= $data3['id_user']; ?>"><h5>Pengumpulan Tugas</h5></a>
+                            <a href="pengumpulan-tugas.php?kode=<?= $data3['id_file']; ?>"><h5>Pengumpulan Tugas</h5></a>
                             <?php } ?>
                         </div>
                         <hr>

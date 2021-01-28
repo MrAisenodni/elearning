@@ -8,7 +8,7 @@
     $tgl_lahir = $_POST['tgllahir'];
     $telp = $_POST['telp'];
     $kelas = $_POST['kelas'];
-    $uname= $_POST['namadpn'].substr($_POST['namablk'], 0, 1).date('s').'@smanim.com';
+    $uname= $_POST['namadpn'].substr($_POST['namablk'], 0, 1).substr($_POST['tgllahir'],2,5).'@smanim.com';
     $pass = md5($_POST['pass']);
     $akses = $_POST['akses'];
 

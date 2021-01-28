@@ -7,16 +7,12 @@
     <div class="row justify-content-center">
         <div class="col-lg-12 col-sm-6 col-xs-12">
             <div class="white-box analytics-info">
-                <?php $sql3 = mysqli_query($con, "SELECT a.pertemuan FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.id_file =  AND b.id_user='$kd' AND b.kelas = '$kelasu'");
-                while ($data3 = mysqli_fetch_array($sql3)) { 
-                ?>
-                <h3 class="box-title">Pengumpulan Tugas | Pertemuan <?= $data3['pertemuan']; ?></h3>
+                <h3 class="box-title">Pengumpulan Tugas | Pertemuan <?= $data['pertemuan']; ?></h3>
                 <hr>
-                <?php } ?>
                 <div class="row">
                     <div class="col-lg-12">
                         <?php 
-                            $sql2 = mysqli_query($con, "SELECT a.id_mapel, b.id_user, a.id_file, a.nama, a.pertemuan, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.tipe='tgs' AND b.id_user='$kd' AND b.kelas = '$kelasu'");
+                            $sql2 = mysqli_query($con, "SELECT a.id_mapel, b.mapel, b.id_user, a.id_file, a.nama, a.pertemuan, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.tipe='tgs' AND a.id_file='$kd' AND b.kelas = '$kelasu'");
                             while ($data2 = mysqli_fetch_array($sql2)) {
                          ?>
                         <form method="get" class="mb-2 ml-3">
@@ -34,7 +30,7 @@
                             <button type="submit" class="btn btn-success" name="upload" style="color: white;">
                                 <i class="fas fa-check"></i> Upload
                             </button>
-                            <a href="topik.php?kode=<?= $kd; ?>" class="btn btn-danger" style="color: white;">
+                            <a href="topik.php?kode=<?= $data['id_user']; ?>" class="btn btn-danger" style="color: white;">
                                 <i class="fas fa-window-close"></i> Batal
                             </a>
                         </form>
