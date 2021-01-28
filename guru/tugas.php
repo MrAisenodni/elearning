@@ -1,5 +1,5 @@
 <?php
-$title = 'Kelola tugas';
+$title = 'Kelola Tugas';
 require_once('navbar.php');
 ?>
 <div class="container-fluid">

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
+<?php
+ob_start();
+require_once('../config/koneksi.php');
+require_once('../session.php');?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +24,6 @@
     <!-- Custom CSS -->
     <link href="../asset/admin/css/style.min.css" rel="stylesheet">
 </head>
-<?php
-ob_start();
-require_once('../config/koneksi.php');
-require_once('../session.php');?>
 <body onload="disAkses()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -59,7 +58,7 @@ require_once('../session.php');?>
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../asset/admin/plugins/images/logo-text.png" alt="homepage" />
+                            <img src="../asset/logo-text.png" alt="homepage" class="pt-2" width="75%" height="45%" />
                         </span>
                     </a>
                     <!-- ============================================================== -->

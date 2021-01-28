@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
+<?php 
+ob_start();
+require_once('config/koneksi.php');
+require_once('session.php'); ?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,20 +14,17 @@
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Virtual Class</title>
+    <title>SMAN 1 Megamendung | <?= $namau ?></title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="asset/admin/plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/logo.png">
     <!-- Custom CSS -->
     <link href="asset/admin/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
     <link rel="stylesheet" href="asset/admin/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <!-- Custom CSS -->
     <link href="asset/admin/css/style.min.css" rel="stylesheet">
 </head>
-<?php 
-ob_start();
-require_once('config/koneksi.php');
-require_once('session.php'); ?>
+
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -53,13 +53,13 @@ require_once('session.php'); ?>
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="asset/admin/plugins/images/logo-icon.png" alt="homepage" />
+                            <img src="asset/logo.png" alt="homepage" width="35px" height="35px" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="asset/admin/plugins/images/logo-text.png" alt="homepage" />
+                            <img src="asset/logo-text.png" alt="homepage" class="pt-2" width="75%" height="45%" />
                         </span>
                     </a>
                     <!-- ============================================================== -->

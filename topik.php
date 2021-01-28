@@ -34,7 +34,7 @@
                         <hr>
                         <div id="section-<?= $i; ?>" class="col-md-12">
                             <?php while ($data2 = mysqli_fetch_array($sql2)) { ?>
-                            <a href="topik.php?kode=<?= $data2['id_user'] ?>&file=dokumen/materi/BUKU BIMBINGAN TA-SKRIPSI.pdf"><h5><?= $data2['nama']; ?></h5></a>
+                            <a href="topik.php?kode=<?= $data2['id_user'] ?>&file=dokumen/materi/BUKU BIMBINGAN TA-SKRIPSI.pdf"><img src="asset/pdf.svg" width="20px" height="20px"><h5><?= $data2['nama']; ?></h5></a>
                             <?php } while ($data3 = mysqli_fetch_array($sql3)) { ?>
                             <a href="pengumpulan-tugas.php?kode=<?= $data3['id_user'] ?>"><h5>Pengumpulan Tugas</h5></a>
                             <?php } ?>
