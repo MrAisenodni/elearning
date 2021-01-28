@@ -58,7 +58,7 @@ require_once('navbar.php');
                                     <a href="edit-tugas.php?kode=<?= $data['id_file'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="del-tugas.php?kode=<?= $data['id_file'] ?>" class="btn btn-danger">
+                                    <a href="del-tugas.php?kode=<?= $data['id_file'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <a href="detail-tugas.php?kode=<?= $data['id_file'] ?>" class="btn btn-info">

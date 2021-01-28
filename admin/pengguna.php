@@ -153,7 +153,7 @@
                                 <th class="border-top-0">Kelas</th>
                                 <th class="border-top-0">Tipe Pengguna</th>
                                 <th class="border-top-0">Username</th>
-                                <th class="border-top-0">Aksi</th>
+                                <th class="border-top-0" width="150px">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -169,11 +169,11 @@
                                 <td><?= $data['kelas'] ;?></td>
                                 <td><?= $data['akses'] ;?></td>
                                 <td><?= $data['username'] ;?></td>
-                                <td>
+                                <td width="150px">
                                     <a href="edit-pengguna.php?id=<?= $data['id_user'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="del-pengguna.php?id=<?= $data['id_user'] ;?>" class="btn btn-danger">
+                                    <a href="del-pengguna.php?id=<?= $data['id_user'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <a href="detail-pengguna.php?id=<?= $data['id_user'] ;?>" class="btn btn-info">

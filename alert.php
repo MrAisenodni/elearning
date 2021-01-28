@@ -58,6 +58,9 @@
     }elseif($stat == "wrong"){
       $cls = "alert alert-danger";
       $psn = "Username dan Password Salah";
+    }elseif($stat == "session_timeout"){
+      $cls = "alert alert-danger";
+      $psn = "Sesi login telah berakhir";
     }elseif($stat == "chpassword_success"){
       $cls = "alert alert-success";
       $psn = "Sukses Mengganti Password";

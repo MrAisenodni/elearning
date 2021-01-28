@@ -117,7 +117,7 @@ if(isset($_POST['tambah'])){
                                     <a href="edit-mapel.php?id=<?= $data['id_mapel'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="del-mapel.php?id=<?= $data['id_mapel'] ?>" class="btn btn-danger">
+                                    <a href="del-mapel.php?id=<?= $data['id_mapel'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <a href="detail-mapel.php?id=<?= $data['id_mapel'] ?>" class="btn btn-info">
