@@ -33,7 +33,7 @@ require_once('navbar.php');
                                 <th class="border-top-0">Pertemuan</th>
                                 <th class="border-top-0">Materi</th>
                                 <th class="border-top-0">File</th>
-                                <th class="border-top-0">Aksi</th>
+                                <th class="border-top-0" width="150px">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,7 +48,7 @@ require_once('navbar.php');
                                 <td><?= $data['pertemuan'] ?></td>
                                 <td><?= $data['nama'] ?></td>
                                 <td><?= $data['file'] ?></td>
-                                <td>
+                                <td width="150px">
                                     <a href="edit-materi.php?kode=<?= $data['id_file'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>

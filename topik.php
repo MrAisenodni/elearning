@@ -14,7 +14,7 @@
                     <?php 
                         for($i=1;$i<=20;$i++) {
                             $sql2 = mysqli_query($con, "SELECT b.id_user, a.id_file, a.nama, a.pertemuan, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.tipe='mod' AND b.id_user='$kd' AND b.kelas = '$kelasu' AND a.pertemuan = $i");
-                            $sql3 = mysqli_query($con, "SELECT b.id_user, a.id_file, a.nama, a.pertemuan, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.tipe='tgs' AND b.id_user='$kd' AND b.kelas = '$kelasu' AND a.pertemuan = $i");
+                            $sql3 = mysqli_query($con, "SELECT a.id_mapel,b.id_user, a.id_file, a.nama, a.pertemuan, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.tipe='tgs' AND b.id_user='$kd' AND b.kelas = '$kelasu' AND a.pertemuan = $i");
                     ?>
                     <div class="col-lg-12">
                         <h3>Pertemuan <?= $i; ?></h3>
