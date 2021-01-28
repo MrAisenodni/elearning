@@ -21,7 +21,9 @@
     <!-- Custom CSS -->
     <link href="asset/admin/css/style.min.css" rel="stylesheet">
 </head>
-<?php require_once('config/koneksi.php');
+<?php 
+ob_start();
+require_once('config/koneksi.php');
 require_once('session.php'); ?>
 <body>
     <!-- ============================================================== -->
@@ -109,16 +111,33 @@ require_once('session.php'); ?>
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.php" aria-expanded="false"><i class="fas fa-clock fa-fw"
-                                    aria-hidden="true"></i><span class="hide-menu">DB001 | Rangga Ariyan Permana | Komputer</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.php" aria-expanded="false"><i class="fas fa-clock fa-fw"
-                                    aria-hidden="true"></i><span class="hide-menu">Vclass 1</span></a></li>
+                        <?php 
+                        if(isset($_GET['kode'])){
+                          $kd = $_GET['kode'];
+                          $sql = mysqli_query($con, "SELECT a.kelas, b.nama, a.mapel FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user WHERE a.id_user='$kd'");
+                          $data = mysqli_fetch_array($sql);
+                        }
+                        ?>
+                        <li class="sidebar-item py-2 mx-n3"> 
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i class="fas fa-book fa-fw" aria-hidden="true">
+                                </i><span class="hide-menu"><?php echo $data['mapel']." | ".$data['kelas']; ?></span>
+                            </a>
+                        </li>
+                        <?php for($i=1;$i<=20;$i++) { ?>
+                        <li class="sidebar-item py-n10 my-n3 mx-2"> 
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="topik.php?kode=<?= $data['id_user']; ?>#section<?= $i ?>" aria-expanded="false">
+                                <i class="fas fa-clock fa-fw" aria-hidden="true"></i><span class="hide-menu">Pertemuan <?= $i ?></span>
+                            </a>
+                        </li>
+                        <?php } ?>
                         <hr>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="logout.php" aria-expanded="false"><i class="fas fa-sign-out-alt"
-                                    aria-hidden="true"></i><span class="hide-menu">Logout</span></a></li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="logout.php" aria-expanded="false">
+                            <i class="fas fa-sign-out-alt"
+                                aria-hidden="true"></i><span class="hide-menu">Logout</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

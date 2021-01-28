@@ -9,7 +9,7 @@ require_once('navbar.php');
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
-                <h3 class="box-title">Tabel Materi</h3>
+                <h3 class="box-title">Kelola Materi</h3>
                 <!-- Button trigger modal -->
                 <?php require_once('../alert.php'); ?>
                 <div class="row">
@@ -39,7 +39,7 @@ require_once('navbar.php');
                         <tbody>
                           <?php
                             $no = 1;
-                            $sql = mysqli_query($con,"SELECT b.mapel, a.pertemuan, a.nama, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = $idu AND a.tipe = 'mod'");
+                            $sql = mysqli_query($con,"SELECT a.id_file, b.mapel, a.pertemuan, a.nama, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = $idu AND a.tipe = 'mod'");
                             while($data = mysqli_fetch_array($sql)){
                           ?>
                             <tr>
@@ -49,13 +49,13 @@ require_once('navbar.php');
                                 <td><?= $data['nama'] ?></td>
                                 <td><?= $data['file'] ?></td>
                                 <td>
-                                    <a href="edit-materi.php?id=<?= $data['id_file'] ?>" class="btn btn-warning">
+                                    <a href="edit-materi.php?kode=<?= $data['id_file'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="del-materi.php?id=<?= $data['id_file'] ?>" class="btn btn-danger">
+                                    <a href="del-materi.php?kode=<?= $data['id_file'] ?>" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-materi.php?id=<?= $data['id_file'] ?>" class="btn btn-info">
+                                    <a href="detail-materi.php?kode=<?= $data['id_file'] ?>" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>

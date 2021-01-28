@@ -27,7 +27,7 @@ if(isset($_POST['tambah'])){
   }else{
     if($ukfile < 10000000){
       move_uploaded_file($tmp, $lokasi.$namafile);
-      $add = mysqli_query($con,"INSERT INTO `tbl_file`(`id_mapel`, `pertemuan`, `nama`, `tipe`, `file`, `tgl_up`) VALUES ('$mapel', '$pert', '$materi', 'mod', '$save$namafile', '$tgl')");
+      $add = mysqli_query($con,"INSERT INTO `tbl_file`(`id_mapel`, `pertemuan`, `nama`, `tipe`, `file`, `tgl_tambah`) VALUES ('$mapel', '$pert', '$materi', 'mod', '$save$namafile', '$tgl')");
       if($add){
         header('location:materi.php?stat=input_success');
       }else{

@@ -9,7 +9,7 @@ require_once('navbar.php');
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
-                <h3 class="box-title">Tabel tugas</h3>
+                <h3 class="box-title">Kelola Tugas</h3>
                     <?php require_once('../alert.php'); ?>
                 <!-- Button trigger modal -->
                 <div class="row">
@@ -40,7 +40,7 @@ require_once('navbar.php');
                         <tbody>
                           <?php
                             $no = 1;
-                            $sql = mysqli_query($con,"SELECT b.mapel, a.pertemuan, a.nama, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = $idu AND a.tipe = 'tgs'");
+                            $sql = mysqli_query($con,"SELECT a.id_file, a.id_mapel, b.mapel, a.pertemuan, a.nama, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = $idu AND a.tipe = 'tgs'");
                             $sql2 = mysqli_query($con,"SELECT a.tugas FROM tbl_tugas a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE a.id_mapel=b.id_mapel");
                             while($data = mysqli_fetch_array($sql)){
                           ?>
@@ -52,13 +52,13 @@ require_once('navbar.php');
                                 <td><?= $data['file'] ?></td>
                                 <td><?php while ($data2 = mysqli_fetch_array($sql2)) { echo $no.". ".$data2['tugas']; ?><br><?php $no++; } ?></td>
                                 <td>
-                                    <a href="edit-tugas.php?id=<?= $data['id_file'] ?>" class="btn btn-warning">
+                                    <a href="edit-tugas.php?kode=<?= $data['id_file'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="del-tugas.php?id=<?= $data['id_file'] ?>" class="btn btn-danger">
+                                    <a href="del-tugas.php?kode=<?= $data['id_file'] ?>" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="detail-tugas.php?id=<?= $data['id_file'] ?>" class="btn btn-info">
+                                    <a href="detail-tugas.php?kode=<?= $data['id_file'] ?>" class="btn btn-info">
                                         <i class="fas fa-list"></i>
                                     </a>
                                 </td>

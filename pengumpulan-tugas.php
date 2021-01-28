@@ -1,4 +1,8 @@
-<?php require_once('navbar-mapel.php'); ?>
+<?php require_once('navbar-mapel.php'); 
+    if(isset($_POST['upload'])) {
+
+    }
+?>
 <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Three charts -->
@@ -10,15 +14,16 @@
                 <hr>
                 <div class="row">
                     <div class="col-lg-12">
-                        <form action="">
+                        <form action="post" enctype="multipart/form-data">
+                            <a href=""><h5>Tugas 1.pdf</h5></a>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Upload File</label>
-                                <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input name="file" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
-                            <a href="" class="btn btn-success" style="color: white;">
+                            <a href="" class="btn btn-success" name="upload" style="color: white;">
                                 <i class="fas fa-check"></i> Upload
                             </a>
-                            <a href="" class="btn btn-danger" style="color: white;">
+                            <a href="topik.php?kode=<?= $kd; ?>" class="btn btn-danger" style="color: white;">
                                 <i class="fas fa-window-close"></i> Batal
                             </a>
                         </form>
