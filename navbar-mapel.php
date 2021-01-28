@@ -119,7 +119,7 @@ require_once('session.php'); ?>
                         }
                         ?>
                         <li class="sidebar-item py-2 mx-n3"> 
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i class="fas fa-book fa-fw" aria-hidden="true">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="topik.php?kode=<?= $kd; ?>" aria-expanded="false"><i class="fas fa-book fa-fw" aria-hidden="true">
                                 </i><span class="hide-menu"><?php echo $data['mapel']." | ".$kelasu; ?></span>
                             </a>
                         </li>

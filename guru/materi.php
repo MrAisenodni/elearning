@@ -30,6 +30,7 @@ require_once('navbar.php');
                             <tr>
                                 <th class="border-top-0">No</th>
                                 <th class="border-top-0">Mata Pelajaran</th>
+                                <th class="border-top-0">Kelas</th>
                                 <th class="border-top-0">Pertemuan</th>
                                 <th class="border-top-0">Materi</th>
                                 <th class="border-top-0">File</th>
@@ -39,12 +40,13 @@ require_once('navbar.php');
                         <tbody>
                           <?php
                             $no = 1;
-                            $sql = mysqli_query($con,"SELECT a.id_file, b.mapel, a.pertemuan, a.nama, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = $idu AND a.tipe = 'mod'");
+                            $sql = mysqli_query($con,"SELECT * FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = '$idu' AND a.tipe = 'mod' ORDER BY b.kelas ASC, a.pertemuan ASC");
                             while($data = mysqli_fetch_array($sql)){
                           ?>
                             <tr>
                                 <td><?= $no ?></td>
                                 <td><?= $data['mapel'] ?></td>
+                                <td><?= $data['kelas'] ?></td>
                                 <td><?= $data['pertemuan'] ?></td>
                                 <td><?= $data['nama'] ?></td>
                                 <td><?= $data['file'] ?></td>
