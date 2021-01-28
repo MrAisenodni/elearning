@@ -23,14 +23,21 @@ if(isset($_POST['update'])){
   $lokasi = "../dokumen/materi/";
   $save = "dokumen/materi/";
 
-  if($mapel == null || $materi==null || $pert==null || $error === 4) {
+  if($mapel == null || $materi==null || $pert==null) {
     header('location:edit-materi.php?stat=input_null');
+  } elseif($namafile == null) {
+    $add = mysqli_query($con,"UPDATE `tbl_file` SET `id_mapel`='$mapel',`pertemuan`='$pert',`nama`='$materi',`tipe`='mod',`tgl_ubah`='$tgl' WHERE id_file = '$kode'");
+    if($add){
+      header('location:materi.php?stat=update_success');
+    }else{
+      header('location:materi.php?stat=update_failed');
+    }
   } elseif(!in_array($ext, $extensi)) {
     header('location:edit-materi.php?stat=file_ext');
   }else{
     if($ukfile < 10000000){
       move_uploaded_file($tmp, $lokasi.$namafile);
-      $add = mysqli_query($con,"UPDATE `tbl_file` SET `id_mapel`='$mapel',`pertemuan`='$pert',`nama`='$materi',`tipe`='mod',`file`='$save$namfile',`tgl_ubah`='$tgl' WHERE id_file = '$kode'");
+      $add = mysqli_query($con,"UPDATE `tbl_file` SET `id_mapel`='$mapel',`pertemuan`='$pert',`nama`='$materi',`tipe`='mod',`file`='$save$namafile',`tgl_ubah`='$tgl' WHERE id_file = '$kode'");
       if($add){
         header('location:materi.php?stat=update_success');
       }else{
@@ -70,20 +77,9 @@ if(isset($_POST['update'])){
                               <label for="exampleInputEmail1">Pertemuan</label>
                               <select class="form-control" name="pert" required>
                                 <option value="<?= $data['pertemuan'] ?>"><?= $data['pertemuan'] ?></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
+                                <?php for($i=1;$i<=20;$i++){ ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                                <?php } ?>
                               </select>
                             </div>
                             <div class="form-group">
@@ -92,7 +88,7 @@ if(isset($_POST['update'])){
                             </div>
                             <div class="form-group">
                               <label for="exampleFormControlFile1">File</label>
-                              <input type="file" name="file" class="form-control-file" id="modul" placeholder="Masukkan File" required>
+                              <input type="file" name="file" class="form-control-file" id="modul" placeholder="Masukkan File">
                             </div>
                           </div>
                           <div class="modal-footer">
