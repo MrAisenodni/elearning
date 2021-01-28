@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
-                <h3 class="box-title">Tabel Pengguna</h3>
+                <h3 class="box-title">Kelola Pengguna</h3>
                 <!-- Button trigger modal -->
                     <?php require_once('../alert.php') ?>
                 <div class="row">

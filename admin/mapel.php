@@ -23,7 +23,7 @@ if(isset($_POST['tambah'])){
         <div class="col-sm-12">
             <div class="white-box">
                 <?php require_once('../alert.php') ?>
-                <h3 class="box-title">Tabel Mapel</h3>
+                <h3 class="box-title">Kelola Mata Pelajaran</h3>
                 <!-- Button trigger modal -->
                 <div class="row">
                     <div class="col-lg-9">
