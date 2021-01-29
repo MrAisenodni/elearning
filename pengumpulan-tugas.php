@@ -1,5 +1,6 @@
 <?php require_once('navbar-mapel.php');
- ?>
+
+?>
 <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Three charts -->
@@ -8,6 +9,7 @@
         <div class="col-lg-12 col-sm-6 col-xs-12">
             <div class="white-box analytics-info">
                 <h3 class="box-title">Pengumpulan Tugas | Pertemuan <?= $data['pertemuan']; ?></h3>
+                <?php require_once('alert.php'); ?>
                 <hr>
                 <div class="row">
                     <div class="col-lg-12">
@@ -22,7 +24,7 @@
                             </div>
                         </form>
                         <?php } ?>
-                        <form action="post" enctype="multipart/form-data">
+                        <form action="upload.php?kode=<?= $data['id_mapel']; ?>" method="post" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Upload File</label>
                                 <input name="file" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
