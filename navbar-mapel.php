@@ -114,7 +114,7 @@ require_once('session.php'); ?>
                         <?php 
                         if(isset($_GET['kode'])){
                           $kd = $_GET['kode'];
-                          $sql = mysqli_query($con, "SELECT a.id_mapel, b.mapel, b.id_user, a.id_file, a.nama, a.pertemuan, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.id_file='$kd' OR b.id_user = '$kd' AND b.kelas = '$kelasu'");
+                          $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user WHERE b.id_user='$kd' AND a.kelas='$kelasu'");
                           $data = mysqli_fetch_array($sql);
                         }
                         ?>
