@@ -21,7 +21,7 @@
 				readfile($lokasi);
 				exit;
 			}
-		} else {
+		} elseif($tipe == 'tgs') {
 			$data = substr($data['file'],13);
 			$data = basename($data);
 			$lokasi = 'dokumen/tugas/'.$data;
@@ -31,6 +31,23 @@
 				header('Content-Description: File Transfer');
 				header('Content-Type: application/pdf');
 				header('Content-Disposition: attachment; filename='.$data);
+				header('Content-Transfer-Encoding: binary');
+
+				readfile($lokasi);
+				exit;
+			}
+		} else {
+			$sql2 = mysqli_query($con,"SELECT * FROM tbl_tugas WHERE id_tugas = '$kode'");
+			$data2 = mysqli_fetch_array($sql2);
+			$data2 = substr($data2['file'],13);
+			$data2 = basename($data2);
+			$lokasi = 'dokumen/tugas/'.$data2;
+
+			if(file_exists($lokasi)) {
+				header('Cache-Control: public');
+				header('Content-Description: File Transfer');
+				header('Content-Type: application/pdf');
+				header('Content-Disposition: attachment; filename='.$data2);
 				header('Content-Transfer-Encoding: binary');
 
 				readfile($lokasi);
