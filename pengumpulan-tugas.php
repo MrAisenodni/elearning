@@ -53,17 +53,30 @@
                     <div class="col-lg-12">
                         <?php require_once('alert.php'); ?>
                         <form method="post" class="mb-2 ml-3" enctype="multipart/form-data">
-                            <div class="form-label mb-2">
+                            <div class="form-label mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Modul Tugas</label><br>
                                 <img src="asset/pdf.svg" width="20px" height="20px">
                                 <a href="download.php?kode=<?= $data2['id_file'] ?>" name="file">&nbsp&nbsp&nbsp<?= $data2['nama'] ?></a>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Upload File</label>
+                                <label for="exampleInputEmail1" class="form-label">Upload Tugas</label>
+                                <?php 
+                                $pert1 = $data2['pertemuan'];
+                                $sql3 = mysqli_query($con, "SELECT * FROM tbl_tugas a INNER JOIN tbl_file b ON b.id_mapel=a.id_mapel WHERE a.pertemuan='$pert1'");
+                                $data3 = mysqli_fetch_array($sql3);
+                                if($data3 == null) {
+                                ?>
                                 <input name="file" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <?php } else { ?>
+                                <br><img src="asset/pdf.svg" width="20px" height="20px">
+                                <a href="download.php?kode=<?= $data3['id_tugas'] ?>" name="file">&nbsp&nbsp&nbsp<?= substr($data3['tugas'],14); ?></a>
+                                <?php } ?>
                             </div>
+                            <?php if ($data3 == null) { ?>
                             <button type="submit" class="btn btn-success" name="upload" style="color: white;">
                                 <i class="fas fa-check"></i> Upload
                             </button>
+                            <?php } ?>
                             <a href="topik.php?kode=<?= $data['id_user']; ?>" class="btn btn-danger" style="color: white;">
                                 <i class="fas fa-window-close"></i> Batal
                             </a>

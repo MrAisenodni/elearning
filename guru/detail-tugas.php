@@ -48,7 +48,7 @@ if(isset($_GET['kode'])){
                             </div>
                             <?php 
                               $no = 1;
-                              $sql2 = mysqli_query($con,"SELECT * FROM tbl_tugas a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = a.id_user INNER JOIN tbl_file d ON d.id_mapel = b.id_mapel WHERE a.id_mapel=b.id_mapel AND d.id_file=$kode"); ?>
+                              $sql2 = mysqli_query($con,"SELECT a.id_mapel,a.id_tugas,a.tugas,c.nama,a.pertemuan,d.pertemuan FROM tbl_tugas a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = a.id_user INNER JOIN tbl_file d ON d.id_mapel = b.id_mapel WHERE a.id_mapel = b.id_mapel AND a.pertemuan = d.pertemuan AND d.id_file=$kode"); ?>
                             <div class="form-group">
                               <label for="exampleFormControlFile1">File Siswa</label><br>
                               <?php while ($data2 = mysqli_fetch_array($sql2)) { ?>

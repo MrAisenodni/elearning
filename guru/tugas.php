@@ -42,7 +42,7 @@ require_once('navbar.php');
                           <?php
                             $no = 1;
                             $sql = mysqli_query($con,"SELECT * FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = $idu AND a.tipe = 'tgs' ORDER BY b.kelas ASC, a.pertemuan ASC");
-                            $sql2 = mysqli_query($con,"SELECT * FROM tbl_tugas a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = a.id_user WHERE a.id_mapel=b.id_mapel");
+                            $sql2 = mysqli_query($con,"SELECT * FROM tbl_tugas a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = a.id_user WHERE a.id_mapel=b.id_mapel ORDER BY b.kelas ASC, a.pertemuan ASC");
                             while($data = mysqli_fetch_array($sql)){
                           ?>
                             <tr>
@@ -51,7 +51,7 @@ require_once('navbar.php');
                                 <td><?= $data['kelas'] ?></td>
                                 <td><?= $data['pertemuan'] ?></td>
                                 <td><?= $data['nama'] ?></td>
-                                <td><?= $data['file'] ?></td>
+                                <td><?= substr($data['file'],14) ?></td>
                                 <td><?php while ($data2 = mysqli_fetch_array($sql2)) { ?> 
                                     <a href="download.php?kode=<?= $data2['id_tugas']; ?>"><?php echo $no.". ".substr($data2['tugas'],14)." - ".$data2['nama']; ?></a><br>
                                     <?php $no++; } ?>

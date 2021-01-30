@@ -4,7 +4,7 @@ require_once('navbar.php');
 $nummod = mysqli_query($con,"SELECT COUNT('tipe') as modul FROM tbl_file INNER JOIN tbl_mapel ON tbl_mapel.id_mapel = tbl_file.id_mapel WHERE tbl_file.tipe='mod' AND tbl_mapel.id_user='$idu'");
 $datamod = mysqli_fetch_array($nummod);
 
-$numtgs = mysqli_query($con,"SELECT COUNT('tipe') as tugas FROM tbl_file WHERE tipe='tgs'");
+$numtgs = mysqli_query($con,"SELECT COUNT('tipe') as tugas FROM tbl_file INNER JOIN tbl_mapel ON tbl_mapel.id_mapel = tbl_file.id_mapel WHERE tbl_file.tipe='tgs' AND tbl_mapel.id_user='$idu'");
 $datatgs = mysqli_fetch_array($numtgs);
 ?>
 <div class="container-fluid">
