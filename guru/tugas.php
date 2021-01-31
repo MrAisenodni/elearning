@@ -14,7 +14,7 @@ require_once('navbar.php');
                 <!-- Button trigger modal -->
                 <div class="row">
                     <div class="col-lg-9">
-                        <a href="tambah-tugas.php" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah tugas</a>
+                        <a href="tambah-tugas.php" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Tugas</a>
                     </div>
                     <div class="col-lg-3">
                         <form>

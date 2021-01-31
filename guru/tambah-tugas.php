@@ -73,7 +73,7 @@ if(isset($_POST['tambah'])){
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Nama tugas</label>
+                    <label for="exampleInputEmail1">Nama Tugas</label>
                     <input type="text" name="tugas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                 </div>
                 <div class="form-group">
