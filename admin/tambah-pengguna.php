@@ -3,12 +3,14 @@ $title = 'Tambah Pengguna';
 require_once('navbar.php');
 
 if(isset($_POST['tambah'])){
-  $nama = $_POST['namadpn']." ".$_POST['namablk'];
+  date_default_timezone_set('Asia/Jakarta');
+  $nama = ucwords($_POST['namadpn'])." ".ucwords($_POST['namablk']);
   $jenkel = $_POST['jk'];
   $tgl_lahir = $_POST['tgllahir'];
   $telp = $_POST['telp'];
   $kelas = $_POST['kelas'];
-  $uname= $_POST['namadpn'].substr($_POST['namablk'], 0, 1).substr($_POST['tgllahir'],2,5).'@smanim.com';
+  $tgl = date('d');
+  $uname= strtolower($_POST['namadpn']).strtolower(substr($_POST['namablk'], 0, 1)).$tgl.'@smanim.com';
   $pass = md5($_POST['pass']);
   $akses = $_POST['akses'];
 
