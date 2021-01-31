@@ -39,10 +39,10 @@ if(isset($_POST['login'])){
 	if($num>0){
 		session_start();
 		$_SESSION['id'] = $data['id_user'];
+		$_SESSION['kelas'] = $data['id_kelas'];
 		$_SESSION['nama'] = $data['nama'];
 		$_SESSION['jk'] = $data['jenkel'];
 		$_SESSION['dob'] = $data['tgl_lahir'];
-		$_SESSION['kelas'] = $data['kelas'];
 		$_SESSION['uname'] = $data['username'];
 		$_SESSION['akses'] = $data['akses'];
 

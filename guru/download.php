@@ -1,12 +1,11 @@
 <?php 
 	require_once ('../config/koneksi.php');
-
 	if(isset($_GET['kode'])) {
 		$kode = $_GET['kode'];
 		$sql = mysqli_query($con,"SELECT * FROM tbl_tugas WHERE id_tugas = '$kode'");
 		$data = mysqli_fetch_array($sql);
 
-		$data = substr($data['tugas'],13);
+		$data = substr($data['tugas'],14);
 		$data = basename($data);
 		$lokasi = '../dokumen/tugas/'.$data;
 

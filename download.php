@@ -8,7 +8,7 @@
 		$tipe = $data['tipe'];
 		if($tipe == 'mod') {
 			$data = substr($data['file'],15);
-			$data = basename($data);
+			$data = basename($data); 
 			$lokasi = 'dokumen/materi/'.$data;
 
 			if(file_exists($lokasi)) {
@@ -22,7 +22,7 @@
 				exit;
 			}
 		} elseif($tipe == 'tgs') {
-			$data = substr($data['file'],13);
+			$data = substr($data['file'],14);
 			$data = basename($data);
 			$lokasi = 'dokumen/tugas/'.$data;
 
@@ -39,7 +39,7 @@
 		} else {
 			$sql2 = mysqli_query($con,"SELECT * FROM tbl_tugas WHERE id_tugas = '$kode'");
 			$data2 = mysqli_fetch_array($sql2);
-			$data2 = substr($data2['file'],13);
+			$data2 = substr($data2['file'],14);
 			$data2 = basename($data2);
 			$lokasi = 'dokumen/tugas/'.$data2;
 

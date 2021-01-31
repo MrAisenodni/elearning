@@ -89,7 +89,9 @@ require_once('session.php'); ?>
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li>
-                            <a class="profile-pic" href="#"><span class="text-white font-medium"><?= $namau ?></span></a>
+                            <?php $sql = mysqli_query($con, "SELECT * FROM tbl_user a INNER JOIN tbl_kelas b ON b.id_kelas = a.id_kelas WHERE a.id_user = $idu");
+                            $data = mysqli_fetch_array($sql); ?>
+                            <a class="profile-pic" href="#"><span class="text-white font-medium"><?php echo $namau." | ".$data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas'] ?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -114,13 +116,13 @@ require_once('session.php'); ?>
                         <?php 
                         if(isset($_GET['kode'])){
                           $kd = $_GET['kode'];
-                          $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user WHERE b.id_user='$kd' AND a.kelas='$kelasu'");
+                          $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user INNER JOIN tbl_kelas c ON c.id_kelas = a.id_kelas WHERE b.id_user='$kd' AND a.id_kelas='$kelasu'");
                           $data = mysqli_fetch_array($sql);
                         }
                         ?>
                         <li class="sidebar-item py-2 mx-n3"> 
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="topik.php?kode=<?= $kd; ?>" aria-expanded="false"><i class="fas fa-book fa-fw" aria-hidden="true">
-                                </i><span class="hide-menu"><?php echo $data['mapel']." | ".$kelasu; ?></span>
+                                </i><span class="hide-menu"><?php echo $data['mapel'] ?></span>
                             </a>
                         </li>
                         <?php for($i=1;$i<=20;$i++) { ?>

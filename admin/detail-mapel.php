@@ -1,9 +1,8 @@
 <?php require_once('navbar.php');
 if(isset($_GET['id'])){
   $id = $_GET['id'];
-  $search = mysqli_query($con, "SELECT id_mapel,mapel,tbl_mapel.kelas as kelas,nama FROM tbl_mapel INNER JOIN tbl_user on tbl_user.id_user = tbl_mapel.id_user
-     WHERE id_mapel='$id'");
-  $data = mysqli_fetch_array($search);
+  $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_kelas b ON b.id_kelas = a.id_kelas INNER JOIN tbl_user c ON c.id_user = a.id_user WHERE a.id_mapel='$id'");
+  $data = mysqli_fetch_array($sql);
 }
 ?>
             <div class="container-fluid">
@@ -20,7 +19,7 @@ if(isset($_GET['id'])){
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kelas</label>
-                                <input type="text" disabled value="<?= $data['kelas']?>" name="kelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="text" disabled value="<?php echo $data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas']; ?>" name="kelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Guru</label>

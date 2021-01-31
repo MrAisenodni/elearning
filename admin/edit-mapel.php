@@ -1,22 +1,21 @@
 <?php require_once('navbar.php');
 if(isset($_GET['id'])){
   $id = $_GET['id'];
-  $search = mysqli_query($con, "SELECT id_mapel,mapel,tbl_mapel.kelas as kelas,nama,tbl_user.id_user FROM tbl_mapel INNER JOIN tbl_user on tbl_user.id_user = tbl_mapel.id_user
-     WHERE id_mapel='$id'");
-  $data = mysqli_fetch_array($search);
+  $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_kelas b ON b.id_kelas = a.id_kelas INNER JOIN tbl_user c ON c.id_user = a.id_user WHERE a.id_mapel='$id'");
+  $data = mysqli_fetch_array($sql);
 }
 
-if(isset($_POST['up'])){
+if(isset($_POST['update'])){
   $idm = $_POST['idm'];
   $mapel = $_POST['mapel'];
   $kelas = $_POST['kelas'];
   $guru = $_POST['guru'];
 
-  $up = mysqli_query($con, "UPDATE tbl_mapel SET
+  $update = mysqli_query($con, "UPDATE tbl_mapel SET
   id_user='$guru',
-  mapel='$mapel',
-  kelas='$kelas' WHERE id_mapel='$idm'");
-  if($up){
+  id_kelas='$kelas',
+  mapel='$mapel' WHERE id_mapel='$id'");
+  if($update){
     header('location:mapel.php?stat=update_success');
   }else{
     header('location:mapel.php?stat=update_failed');
@@ -38,7 +37,13 @@ if(isset($_POST['up'])){
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kelas</label>
-                                <input type="text"  value="<?= $data['kelas']?>" name="kelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <select class="form-control" name="kelas" required>
+                                  <option value="<?= $data['id_kelas'] ?>"><?php echo $data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas']; ?></option>
+                                  <?php $sql2 = mysqli_query($con, "SELECT * FROM tbl_kelas");
+                                  while ($data2 = mysqli_fetch_array($sql2)) { ?>
+                                  <option value="<?= $data2['id_kelas'] ?>"><?php echo $data2['tingkat']." ".strtoupper($data2['jurusan'])." ".$data2['kelas']; ?></option>
+                                  <?php } ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Guru</label>
@@ -55,7 +60,7 @@ if(isset($_POST['up'])){
                                   <?php }?>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-success" name="up">
+                            <button type="submit" class="btn btn-success" name="update">
                                 <i class="fas fa-save"></i> Simpan
                             </button>
                             <a href="mapel.php" class="btn btn-primary">

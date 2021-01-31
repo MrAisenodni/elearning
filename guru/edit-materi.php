@@ -1,7 +1,7 @@
 <?php require_once('navbar.php');
 if(isset($_GET['kode'])){
   $kode = $_GET['kode'];
-  $sql = mysqli_query($con, "SELECT * FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel=a.id_mapel WHERE a.id_file = $kode");
+  $sql = mysqli_query($con, "SELECT * FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_kelas c ON c.id_kelas = b.id_kelas WHERE a.id_file = $kode");
   $data = mysqli_fetch_array($sql);
 }
 
@@ -61,15 +61,15 @@ if(isset($_POST['update'])){
                             <div class="form-group">
                               <label for="exampleInputEmail1">Mata Pelajaran</label>
                               <select class="form-control" name="mapel" required>
-                                <option value="<?= $data['id_mapel'] ?>"><?php echo $data['mapel']." | ".$data['kelas'] ?></option>
+                                <option value="<?= $data['id_mapel'] ?>"><?php echo $data['mapel']." | ".$data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas'] ?></option>
                                 <?php
                                 $sql = "";
                                 if($aksesu=='gur'){
-                                  $sql2 = mysqli_query($con, "SELECT id_mapel,id_user,mapel,kelas FROM tbl_mapel WHERE id_user='$idu'");
+                                  $sql2 = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_kelas b ON b.id_kelas = a.id_kelas WHERE a.id_user='$idu'");
                                 }
                                 while($data2 = mysqli_fetch_array($sql2)){
                                 ?>
-                                  <option value="<?= $data['id_mapel'] ?>"><?php echo $data2['mapel']." | ".$data2['kelas'] ?></option>
+                                  <option value="<?= $data['id_mapel'] ?>"><?php echo $data2['mapel']." | ".$data2['tingkat']." ".strtoupper($data2['jurusan'])." ".$data2['kelas'] ?></option>
                                 <?php }?>
                               </select>
                             </div>

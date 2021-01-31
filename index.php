@@ -8,8 +8,8 @@
             <div class="white-box analytics-info">
                 <h3 class="box-title">Mata Pelajaran</h3>
                 <div class="row">
-                <?php $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user WHERE a.kelas='$kelasu'");
-                while ($data = mysqli_fetch_array($sql)) {?>
+                <?php $sql2 = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_kelas b ON b.id_kelas = a.id_kelas INNER JOIN tbl_user c ON c.id_user = a.id_user WHERE a.id_kelas='$kelasu'");
+                while ($data2 = mysqli_fetch_array($sql2)) {?>
                     <div class="col-lg-6">
                         <div class="btn btn-default">
                             <div class="card mb-3" style="max-width: 600px;">
@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <a href="topik.php?kode=<?= $data['id_user']?>" class="card-title"><h5><?php echo $kelasu." | ".$data['nama']." | ".$data['mapel']?></h5></a>
+                                            <a href="topik.php?kode=<?= $data2['id_user']?>" class="card-title"><h5><?php echo $data2['nama']." | ".$data2['mapel']?></h5></a>
                                         </div>
                                     </div>
                                 </div>
@@ -39,9 +39,9 @@
                 <div class="card mb-3" style="max-width: 600px;">
                     <div class="row g-0">
                         <div class="card-body">
-                            <?php $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_user b ON b.id_user = a.id_user WHERE a.kelas='$kelasu'");
-                            while ($data = mysqli_fetch_array($sql)) { ?>
-                            <a href="topik.php?kode=<?= $data['id_user']; ?>" class="card-title"><h5><?php echo $kelasu." | ".$data['nama']." | ".$data['mapel']?></h5></a>
+                            <?php $sql2 = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_kelas b ON b.id_kelas = a.id_kelas INNER JOIN tbl_user c ON c.id_user = a.id_user WHERE a.id_kelas='$kelasu'");
+                            while ($data2 = mysqli_fetch_array($sql2)) { ?>
+                            <a href="topik.php?kode=<?= $data2['id_user']; ?>" class="card-title"><h5><?php echo $data2['nama']." | ".$data2['mapel']?></h5></a>
                             <hr>
                         <?php } ?>
                         </div>

@@ -3,10 +3,10 @@
   session_start();
   if(isset($_SESSION['akses'])){
     $idu = $_SESSION['id'];
+    $kelasu = $_SESSION['kelas'];
     $namau = $_SESSION['nama'];
     $jku = $_SESSION['jk'];
     $dobu = $_SESSION['dob'];
-    $kelasu = $_SESSION['kelas'];
     $unameu = $_SESSION['uname'];
     $aksesu = $_SESSION['akses'];
   }else{

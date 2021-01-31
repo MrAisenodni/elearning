@@ -1,7 +1,7 @@
 <?php require_once('navbar-mapel.php');
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
-        $sql2 = mysqli_query($con, "SELECT a.id_mapel, b.mapel, b.id_user, a.id_file, a.nama, a.pertemuan, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.tipe='tgs' AND a.id_file='$id' AND b.kelas = '$kelasu'");
+        $sql2 = mysqli_query($con, "SELECT a.id_mapel, b.mapel, b.id_user, a.id_file, a.nama, a.pertemuan, a.file FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_user c ON c.id_user = b.id_user WHERE a.tipe='tgs' AND a.id_file='$id' AND b.id_kelas = '$kelasu'");
         $data2 = mysqli_fetch_array($sql2);
     }
     if (isset($_POST['upload'])) {
@@ -18,7 +18,7 @@
 
         $extensi = ['pdf'];
         $ext = pathinfo($namafile, PATHINFO_EXTENSION);
-        $lokasi = "../dokumen/tugas/";
+        $lokasi = "dokumen/tugas/";
         $save = "dokumen/tugas/";
 
         if($error === 4) {
@@ -69,7 +69,7 @@
                                 <input name="file" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 <?php } else { ?>
                                 <br><img src="asset/pdf.svg" width="20px" height="20px">
-                                <a href="download.php?kode=<?= $data3['id_tugas'] ?>" name="file">&nbsp&nbsp&nbsp<?= substr($data3['tugas'],14); ?></a>
+                                <a href="guru/download.php?kode=<?= $data3['id_tugas'] ?>" name="file">&nbsp&nbsp&nbsp<?= substr($data3['tugas'],14); ?></a>
                                 <?php } ?>
                             </div>
                             <?php if ($data3 == null) { ?>

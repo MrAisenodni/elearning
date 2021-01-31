@@ -1,7 +1,7 @@
 <?php require_once('navbar.php');
 if(isset($_GET['id'])){
   $id = $_GET['id'];
-  $search = mysqli_query($con, "SELECT * FROM tbl_user WHERE id_user='$id'");
+  $search = mysqli_query($con, "SELECT * FROM tbl_user a LEFT JOIN tbl_kelas b ON b.id_kelas = a.id_kelas WHERE id_user='$id'");
   $data = mysqli_fetch_array($search);
 }
 
@@ -16,10 +16,10 @@ if(isset($_POST['up'])){
 
   $add = mysqli_query($con, "UPDATE tbl_user SET
   nama='$nama',
+  id_kelas='$kelas',
   jenkel='$jenkel',
   tgl_lahir='$tgl_lahir',
   telp='$telp',
-  kelas='$kelas',
   akses='$akses',
   password='$pass' WHERE id_user='$id'");
   if($add){
@@ -90,7 +90,13 @@ if(isset($_POST['up'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Kelas</label>
-                                    <input type="text" class="form-control" id="kelas" aria-describedby="emailHelp" name="kelas" value="<?= $data['kelas'] ?>" required>
+                                    <select class="form-control" name="kelas" id="kelas">
+                                      <option value="<?= $data['id_kelas'] ?>"><?php echo $data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas']; ?></option>
+                                      <?php $sql2 = mysqli_query($con, "SELECT * FROM tbl_kelas");
+                                      while ($data2 = mysqli_fetch_array($sql2)) { ?>
+                                      <option value="<?= $data2['id_kelas'] ?>"><?php echo $data2['tingkat']." ".strtoupper($data2['jurusan'])." ".$data2['kelas']; ?></option>
+                                      <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Username</label>

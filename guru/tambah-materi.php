@@ -55,11 +55,11 @@ if(isset($_POST['tambah'])){
                   <?php
                   $sql = "";
                   if($aksesu=='gur'){
-                    $sql = mysqli_query($con, "SELECT id_mapel,id_user,mapel,kelas FROM tbl_mapel WHERE id_user='$idu'");
+                    $sql = mysqli_query($con, "SELECT * FROM tbl_mapel a INNER JOIN tbl_kelas b ON b.id_kelas = a.id_kelas WHERE a.id_user='$idu'");
                   }
                   while($data = mysqli_fetch_array($sql)){
                   ?>
-                    <option value="<?= $data['id_mapel'] ?>"><?php echo $data['mapel']." | ".$data['kelas'] ?></option>
+                    <option value="<?= $data['id_mapel'] ?>"><?php echo $data['mapel']." | ".$data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas'] ?></option>
                   <?php }?>
                 </select>
               </div>

@@ -30,26 +30,26 @@ require_once('navbar.php');
                             <tr>
                                 <th class="border-top-0">No</th>
                                 <th class="border-top-0">Mata Pelajaran</th>
-                                <th class="border-top-0">Kelas</th>
+                                <th class="border-top-0" width="80px">Kelas</th>
                                 <th class="border-top-0">Pertemuan</th>
                                 <th class="border-top-0">Materi</th>
-                                <th class="border-top-0">File</th>
+                                <th class="border-top-0">Dokumen</th>
                                 <th class="border-top-0" width="150px">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                           <?php
                             $no = 1;
-                            $sql = mysqli_query($con,"SELECT * FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel WHERE b.id_user = '$idu' AND a.tipe = 'mod' ORDER BY b.kelas ASC, a.pertemuan ASC");
+                            $sql = mysqli_query($con,"SELECT * FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_kelas c ON c.id_kelas = b.id_kelas WHERE b.id_user = '$idu' AND a.tipe = 'mod' ORDER BY b.id_kelas ASC, a.pertemuan ASC");
                             while($data = mysqli_fetch_array($sql)){
                           ?>
                             <tr>
                                 <td><?= $no ?></td>
                                 <td><?= $data['mapel'] ?></td>
-                                <td><?= $data['kelas'] ?></td>
+                                <td><?= $data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas'] ?></td>
                                 <td><?= $data['pertemuan'] ?></td>
                                 <td><?= $data['nama'] ?></td>
-                                <td><?= $data['file'] ?></td>
+                                <td><a href="../download.php?kode=<?= $data['id_file'] ?>"><?= substr($data['file'],15) ?></a></td>
                                 <td width="150px">
                                     <a href="edit-materi.php?kode=<?= $data['id_file'] ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>

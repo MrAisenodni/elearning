@@ -1,7 +1,7 @@
 <?php require_once('navbar.php');
 if(isset($_GET['kode'])){
   $kode = $_GET['kode'];
-  $sql = mysqli_query($con, "SELECT * FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel=a.id_mapel WHERE a.id_file = $kode");
+  $sql = mysqli_query($con, "SELECT * FROM tbl_file a INNER JOIN tbl_mapel b ON b.id_mapel = a.id_mapel INNER JOIN tbl_kelas c ON c.id_kelas = b.id_kelas WHERE a.id_file = $kode");
   $data = mysqli_fetch_array($sql);
 }
 ?>
@@ -16,27 +16,11 @@ if(isset($_GET['kode'])){
                           <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
                               <label for="exampleInputEmail1">Mata Pelajaran</label>
-                              <select class="form-control" name="mapel" disabled>
-                                <option value="<?= $data['id_mapel'] ?>"><?php echo $data['mapel']." | ".$data['kelas'] ?></option>
-                                <?php
-                                $sql = "";
-                                if($aksesu=='gur'){
-                                  $sql2 = mysqli_query($con, "SELECT id_mapel,id_user,mapel,kelas FROM tbl_mapel WHERE id_user='$idu'");
-                                }
-                                while($data2 = mysqli_fetch_array($sql2)){
-                                ?>
-                                  <option value="<?= $data['id_mapel'] ?>"><?php echo $data2['mapel']." | ".$data2['kelas'] ?></option>
-                                <?php }?>
-                              </select>
+                              <input type="text" name="mapel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $data['mapel']." | ".$data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas'] ?>" disabled>
                             </div>
                             <div class="form-group">
                               <label for="exampleInputEmail1">Pertemuan</label>
-                              <select class="form-control" name="pert" disabled>
-                                <option value="<?= $data['pertemuan'] ?>"><?= $data['pertemuan'] ?></option>
-                                <?php for($i=1;$i<=20;$i++){ ?>
-                                <option value="<?= $i ?>"><?= $i ?></option>
-                                <?php } ?>
-                              </select>
+                              <input type="text" name="pert" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $data['pertemuan'] ?>" disabled>
                             </div>
                             <div class="form-group">
                               <label for="exampleInputEmail1">Nama Tugas</label>
@@ -52,7 +36,7 @@ if(isset($_GET['kode'])){
                             <div class="form-group">
                               <label for="exampleFormControlFile1">File Siswa</label><br>
                               <?php while ($data2 = mysqli_fetch_array($sql2)) { ?>
-                              <a href="download.php?kode=<?= $data['id_tugas']; ?>"><?php echo $no.". ".substr($data2['tugas'],14)." - ".$data2['nama']; ?></a><br>
+                              <a href="download.php?kode=<?= $data2['id_tugas'] ?>"><?php echo $no.". ".substr($data2['tugas'],14)." - ".$data2['nama']; ?></a><br>
                               <?php $no++; } ?>
                             </div>
                           </div>

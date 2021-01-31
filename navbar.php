@@ -89,7 +89,9 @@ require_once('session.php'); ?>
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li>
-                            <a class="profile-pic" href="#"><span class="text-white font-medium"><?= $namau ?></span></a>
+                            <?php $sql = mysqli_query($con, "SELECT * FROM tbl_user a INNER JOIN tbl_kelas b ON b.id_kelas = a.id_kelas WHERE a.id_user = $idu");
+                            $data = mysqli_fetch_array($sql); ?>
+                            <a class="profile-pic" href="#"><span class="text-white font-medium"><?php echo $namau." | ".$data['tingkat']." ".strtoupper($data['jurusan'])." ".$data['kelas'] ?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
