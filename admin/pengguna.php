@@ -14,7 +14,7 @@
                     <?php require_once('../alert.php') ?>
                 <div class="row">
                     <div class="col-lg-9">
-                        <a href="tambah-pengguna.php" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Materi</a>
+                        <a href="tambah-pengguna.php" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Pengguna</a>
                         <br><br>
                     </div>
                     <div class="col-lg-3">
