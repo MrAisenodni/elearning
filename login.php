@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="asset/login/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="asset/logo.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="asset/login/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -59,44 +59,36 @@ if(isset($_POST['login'])){
 	}
 } ?>
 <body>
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 				<form class="login100-form validate-form" method="post">
-					<span class="login100-form-title p-b-33">
-						Login
-					</span>
+					<b class="login100-form-title p-b-25">
+						<img src="asset/logo.png" class="mb-2" width="80px" height="80px" align="Logo"><br>
+						<p class="fs-20">SMA Negeri 1 Megamendung</p>
+					</b>
 					<?php require_once('alert.php'); ?>
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input mb-2" data-validate = "Masukkan Email: example@smanim.com" style="border-radius: 100px; height: 70px;">
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
 
-					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+					<div class="wrap-input100 rs1 validate-input" data-validate="Masukkan Kata Sandi" style="border-radius: 100px; height: 70px;">
+						<input class="input100" type="password" name="pass" placeholder="Kata Sandi">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn" type="submit" name="login">
-							Sign in
+						<button class="login100-form-btn" type="submit" name="login" style="border-radius: 100px; background: #1ce61c;">
+							<b class="fs-16">Masuk</b>
 						</button>
                     </div><hr>
-                    <div class="container-login100-form-btn m-t-20">
-						<!-- <button class="login100-form-btn btn-danger">
-							Keluar
-						</button> -->
-					</div>
-
 				</form>
 			</div>
 		</div>
 	</div>
-
-
 
 <!--===============================================================================================-->
 	<script src="asset/login/vendor/jquery/jquery-3.2.1.min.js"></script>

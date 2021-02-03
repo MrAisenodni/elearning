@@ -76,11 +76,12 @@ while ($dataips = mysqli_fetch_array($sqlips)) {
                 <td>'. $dataips['mapel'] .'</td>
                 <td>'. $dataips['tingkat']." ".strtoupper($dataips['jurusan'])." ".$dataips['kelas'] .'</td>
                 <td>'. $dataips['nama'] .'</td>
-            </tr>
+            </tr>';
+}
+$html .= '
         </table>
     </body>
 </html>';
-}
 
 $mpdf->WriteHTML($html);
 $mpdf->Output();

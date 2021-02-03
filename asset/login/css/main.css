@@ -188,6 +188,7 @@ iframe {
   position: relative;
   background-color: #fff;
   border: 1px solid #e6e6e6;
+  border-radius: 100px;
 }
 
 .wrap-input100.rs1 {
@@ -317,6 +318,7 @@ input.input100 {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  border-radius: 100px;
 }
 
 .login100-form-btn {
@@ -327,14 +329,15 @@ input.input100 {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 100px;
   padding: 0 20px;
   width: 100%;
   height: 60px;
-  background-color: #4272d7;
+  background-color: #42d747;
 
   font-family: OpenSans-Regular;
-  font-size: 14px;
-  color: #fff;
+  font-size: 16px;
+  color: #000;
   line-height: 1.2;
   text-transform: uppercase;
 
