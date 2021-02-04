@@ -59,10 +59,10 @@ if(isset($_POST['login'])){
 	}
 } ?>
 <body>
-	<div class="limiter">
-		<div class="container-login100">
+	<div class="limiter" style="background-image: url('asset/login/images/back.jpg'); background-repeat: no-repeat; background-size: cover;">
+		<div class="container-login100" style="background: #e9faff00;">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form" method="post">
+				<form class="login100-form validate-form" method="post" style="">
 					<b class="login100-form-title p-b-25">
 						<img src="asset/logo.png" class="mb-2" width="80px" height="80px" align="Logo"><br>
 						<p class="fs-20">SMA Negeri 1 Megamendung</p>
