@@ -5,9 +5,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center"> 2020 © Ample Admin brought to you by <a
-                    href="https://www.wrappixel.com/">wrappixel.com</a>
-            </footer>
+            <footer class="footer text-center"> © 2021 SMA Negeri 1 Megamendung</footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
